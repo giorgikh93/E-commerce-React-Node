@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
-import Body from './components/Body'
+import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -15,7 +15,7 @@ function App() {
     <>
       <Header />
       <hr />
-      <Body/>
+      <Sidebar/>
       <div>
         <Switch>
           <Route exact path='/'>

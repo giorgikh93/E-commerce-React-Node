@@ -6,7 +6,7 @@
     height: calc(100vh - 135px);
     transition: 1s;
     border-right: 1px solid rgb(230, 226, 226);
-    
+    position: absolute;
     z-index: 12;
     background-color: white;
 }
@@ -21,11 +21,4 @@
     opacity: 0.8;
     }
 }
-.bodyWrapper{
-    display: flex;
-    position: relative;
-}
-.main{
-    position: absolute;
-    left : 30
-}
+
