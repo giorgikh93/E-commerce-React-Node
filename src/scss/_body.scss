@@ -1,0 +1,31 @@
+
+.sideBar{
+    padding:20px 30px;
+    width: 200px;
+    transform: translate(-100%);
+    height: calc(100vh - 135px);
+    transition: 1s;
+    border-right: 1px solid rgb(230, 226, 226);
+    
+    z-index: 12;
+    background-color: white;
+}
+.sideBar.slide{
+    transform: translate(0);
+}
+.sideBar {
+    li{
+    padding-top: 20px;
+    color: $mainColor;
+    font-weight: bold;
+    opacity: 0.8;
+    }
+}
+.bodyWrapper{
+    display: flex;
+    position: relative;
+}
+.main{
+    position: absolute;
+    left : 30
+}

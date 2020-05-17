@@ -1,21 +1,22 @@
-import React from 'react'
-
+import React,{ useContext} from 'react'
+import {Consumer} from '../Context'
 
 function Header(){
+ const {isClicked,handleClick} = useContext(Consumer)
+
     return(
+
         <div className='HeaderWrapper'>
-            <div>
-                <div className='menuLine1'></div>
-                <div className='menuLine2'></div>
-                <div className='menuLine3'></div>
-            </div>
+        
+        {isClicked ? <i class="fa fa-times" aria-hidden="true" onClick={handleClick}></i> :  <i className="fa fa-bars" aria-hidden="true" onClick={handleClick}></i>}
+       
 
             <div className='logo'>
-                <div>G</div>
-                <div>K</div>
+                <div className="G">G</div>
+                <div className="K">K</div>
             </div>
 
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <i className="fa fa-shopping-bag" aria-hidden="true"></i>
         </div>
     )
 }
