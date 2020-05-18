@@ -1,0 +1,25 @@
+.admin{
+    i{
+        cursor: pointer;
+        font-size: 30px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 400px;
+        line-height: 1.6;
+    }
+}
+.adminForms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid black;
+    th{
+        border: 1px solid black;
+    }
+}

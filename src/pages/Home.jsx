@@ -1,12 +1,13 @@
 import React from 'react'
-
-
+import Filter from '../components/Filter'
+import MainContent from '../components/MainContent'
 
 function Home(){
     return(
-        <>
-        <h1 style={{textAlign:'center'}}>its home page</h1>
-        </>
+        <div >
+        <Filter/>
+        <MainContent/>
+        </div>
     )
 }
 

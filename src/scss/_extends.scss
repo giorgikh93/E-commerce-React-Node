@@ -1,0 +1,16 @@
+%spaceBetween{
+    display: flex;
+    justify-content: space-between;
+}
+
+%wrapper{
+    max-width: 1720px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+%heading{
+    padding: 40px 0;
+    font-size: 26px;
+    color: $mainColor;
+}

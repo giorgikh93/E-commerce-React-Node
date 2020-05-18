@@ -1,0 +1,32 @@
+
+
+
+.contact{
+    h1{
+        @extend %heading
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 364px;
+        justify-content: space-between;
+        textarea{
+            &::placeholder{
+                padding: 15px;
+            }
+        }
+        input{
+            padding: 10px 0;
+            &::placeholder{
+                padding: 15px;
+            }
+        }
+    }
+}
+.submit{
+    background-color: $mainColor;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

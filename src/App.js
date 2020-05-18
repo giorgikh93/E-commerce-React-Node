@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
-
+import Admin from './pages/Admin'
 import './scss/base.scss'
 
 
@@ -16,7 +16,7 @@ function App() {
       <Header />
       <hr />
       <Sidebar/>
-      <div>
+      <div className='bodyWrapper'>
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route  path='/contact'>
             <Contact />
+          </Route>
+          <Route  path='/admin'>
+            <Admin />
           </Route>
         </Switch>
       </div>

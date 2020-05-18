@@ -1,6 +1,5 @@
 .HeaderWrapper{
-    display: flex;
-    justify-content: space-between;
+    @extend %spaceBetween;
     padding: 20px 30px;
     align-items: center;
 }

@@ -55,4 +55,63 @@ table {
   border-spacing: 0;
 }
 
+.HeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  font-weight: bold;
+  font-size: 25px;
+  border: 2px solid #352e2e;
+}
+
+.fa.fa-bars, .fa.fa-times {
+  cursor: pointer;
+  font-size: 20px;
+  width: 50px;
+}
+
+.K {
+  background-color: #352e2e;
+  color: white;
+  padding: 2px 5px;
+}
+
+.G {
+  padding: 2px 5px;
+  color: #352e2e;
+}
+
+hr {
+  color: gray;
+  opacity: 0.2;
+}
+
+.sideBar {
+  padding: 20px 30px;
+  width: 200px;
+  transform: translate(-100%);
+  height: calc(100vh - 135px);
+  transition: 1s;
+  border-right: 1px solid #e6e2e2;
+  position: absolute;
+  z-index: 12;
+  background-color: white;
+}
+
+.sideBar.slide {
+  transform: translate(0);
+}
+
+.sideBar li {
+  padding-top: 20px;
+  color: #352e2e;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
 /*# sourceMappingURL=output.css.map */
