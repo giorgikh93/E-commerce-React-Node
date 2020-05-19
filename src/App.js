@@ -6,8 +6,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
+import Cart from './pages/Cart'
 import './scss/base.scss'
-
 
 
 function App() {
@@ -29,6 +29,9 @@ function App() {
           </Route>
           <Route  path='/admin'>
             <Admin />
+          </Route>
+          <Route  path='/cart'>
+            <Cart />
           </Route>
         </Switch>
       </div>

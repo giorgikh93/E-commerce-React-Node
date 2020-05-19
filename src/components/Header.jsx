@@ -1,5 +1,6 @@
 import React,{ useContext} from 'react'
 import {Consumer} from '../Context'
+import {Link} from 'react-router-dom'
 
 function Header(){
  const {isClicked,handleClick} = useContext(Consumer)
@@ -8,7 +9,7 @@ function Header(){
 
         <div className='HeaderWrapper'>
         
-        {isClicked ? <i class="fa fa-times" aria-hidden="true" onClick={handleClick}></i> :  <i className="fa fa-bars" aria-hidden="true" onClick={handleClick}></i>}
+        {isClicked ? <i className="fa fa-times" aria-hidden="true" onClick={handleClick}></i> :  <i className="fa fa-bars" aria-hidden="true" onClick={handleClick}></i>}
        
 
             <div className='logo'>
@@ -16,7 +17,7 @@ function Header(){
                 <div className="K">K</div>
             </div>
 
-            <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+          <Link to='/cart'> <i className="fa fa-shopping-bag" aria-hidden="true"></i></Link> 
         </div>
     )
 }

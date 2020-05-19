@@ -22,4 +22,13 @@
     th{
         border: 1px solid black;
     }
+    tbody{
+        border: 1px solid black;
+        td,tr{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+ 
 }

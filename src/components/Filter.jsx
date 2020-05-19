@@ -21,7 +21,6 @@ function Filter() {
                 <option value="Order by">Order by</option>
                 <option value="Lowest-Highiest">Lowest-Highiest</option>
                 <option value="Highest-Lowest">Highiest-Lowest</option>
-
             </select>
         </div>
     )
