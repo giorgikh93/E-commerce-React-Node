@@ -14,7 +14,7 @@ class ProductHandler {
     }
 
     commit() {
-        fs.writeFile('data.json', JSON.stringify(this.products),  (err)=>{
+        fs.writeFile('data.json', JSON.stringify(this.products,null,2),  (err)=>{
             if(err){
                 return 'there is an error'
             }
@@ -39,14 +39,18 @@ class ProductHandler {
     }
 
     updateProduct(productId, product) {
+        console.log(product)
         let idx = this.products.findIndex(({ id }) => id === productId);
-
         this.products[idx] = product;
+        this.commit()
+      
     }
 
     deleteProduct(productId) {
         let idx = this.products.findIndex(({ id }) => id === productId);
         this.products.splice(idx, 1);
+        this.commit()
+
       }
     
 }

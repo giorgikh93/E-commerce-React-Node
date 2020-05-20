@@ -6,7 +6,6 @@ function Header(){
  const {isClicked,handleClick} = useContext(Consumer)
 
     return(
-
         <div className='HeaderWrapper'>
         
         {isClicked ? <i className="fa fa-times" aria-hidden="true" onClick={handleClick}></i> :  <i className="fa fa-bars" aria-hidden="true" onClick={handleClick}></i>}

@@ -1,4 +1,7 @@
 .admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     i{
         cursor: pointer;
         font-size: 30px;
@@ -9,6 +12,10 @@
         width: 200px;
         height: 400px;
         line-height: 1.6;
+    }
+    .addProduct{
+        display: flex;
+        justify-content: center;
     }
 }
 .adminForms{

@@ -2,7 +2,6 @@ import React,{ useContext } from 'react'
 import {Link} from 'react-router-dom'
 import {Consumer} from '../Context'
 
-
 function Sidebar(){
     const {isClicked} = useContext(Consumer)
 
