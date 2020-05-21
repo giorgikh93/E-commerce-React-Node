@@ -13,9 +13,9 @@ function Admin() {
             
             
             {isClicked ? <i className="fa fa-minus" aria-hidden="true" onClick={handleClick}></i> : <i className="fa fa-plus" aria-hidden="true" onClick={handleClick}  ></i>}
-            <ErrorBoundary>
+            
             <AdminForm isClicked={isClicked}/>
-            </ErrorBoundary>
+            
         </div>
     )
 }

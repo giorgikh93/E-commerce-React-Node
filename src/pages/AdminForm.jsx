@@ -15,7 +15,7 @@ function AdminForm(props) {
         data,
         handlePostRequest, handleSize,
         handleDelete, handleEdit,
-        isEditAction,
+        isEditAction
     } = useContext(Consumer)
 
 
@@ -31,19 +31,24 @@ function AdminForm(props) {
         return available
     }
 
-
-    const pictures = data.map((item, index) =>
-        <tr key={index}>
+    const pictures = data.map((item, index) => {
+        return <tr key={index}>
             <td> {item.id}</td>
             <td> {item.title}</td>
             <td> {item.description}</td>
             <td>{getSizes(item.size)}</td>
             <td>{item.freeshipping ? <i className="fa fa-check" aria-hidden="true"></i> : <i className="fa fa-times" aria-hidden="true"></i>}</td>
             <td>{item.price}</td>
-            <td><img src={require(`../pictures/${item.image}`)} style={{ width: '100px', height: '100px' }} alt='img' /> </td>
-            <td><button onClick={() => handleEdit(item.id)}>Edit</button> <button onClick={() => handleDelete(item.id)}>Delete</button></td>
+            <td>
+                {
+                    item.image != '' ?
+                        <img src={`/pictures/${item.image}`} style={{ width: '100px', height: '100px' }} alt='img' />
+                    : ''
+                }
+            </td>
+            <td><button className='adminEdit' onClick={() => handleEdit(item.id)}>Edit</button> <button className='adminDelete' onClick={() => handleDelete(item.id)}>Delete</button></td>
         </tr>
-
+    }
     )
     function handleBlur() {
         if (!id) {
@@ -61,7 +66,7 @@ function AdminForm(props) {
                             <th>Title</th>
                             <th>Description</th>
                             <th>Available Sizes</th>
-                            <th>Free shiping</th>
+                            <th>Free shipping</th>
                             <th>Price</th>
                             <th>Picture</th>
                             <th>Modify Products</th>
@@ -82,9 +87,11 @@ function AdminForm(props) {
                    Description: <textarea value={textarea} onChange={(e) => setTextArea(e.target.value)} />
                    Price:<input type="text" name='price' value={price} onChange={(e) => setPrice(e.target.value)} />
 
-                        <div>
+                        <div className='sizeCheckbox'>
 
-                            Available Sizes:<input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
+                            Available Sizes:
+                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : false } onChange={handleSize} />XS
+                    <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
                    <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
                    <input type="checkbox" value='L' checked={size.L} onChange={handleSize} />L
                    <input type="checkbox" value='XL' checked={size.XL} onChange={handleSize} />XL

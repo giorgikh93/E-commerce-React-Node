@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import useClick from './Hooks/useClick'
+import CartItems from './components/CartItems'
 
 const Context = React.createContext()
 
@@ -10,18 +11,18 @@ function ContextProvider(props) {
     const { isClicked, handleClick } = useClick(false)
 
     ////State/////
-
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
     const [textarea, setTextArea] = useState('')
-    const [size, setSize] = useState({ S: false, M: false, L: false, XL: false, XXL: false })
+    const [size, setSize] = useState({ XS: false, S: false, M: false, L: false, XL: false, XXL: false })
     const [isFreeShipping, setIsFreeShipping] = useState(false)
     const [file, setFile] = useState(null)
     const [price, setPrice] = useState('')
     const [data, setData] = useState([])
     const [isEditAction, setIsEditAction] = useState(false)
     ////
-
+    const [cartItems, setCartItems] = useState([])
+    /////
     const ADMIN_URL = 'http://localhost:5000/admin'
 
     function resetFields() {
@@ -33,9 +34,11 @@ function ContextProvider(props) {
         setFile(null)
         setPrice('')
     }
-
+    
     function handlePostRequest(e) {
         e.preventDefault()
+        e.stopPropagation()
+        
         const formData = new FormData()
         formData.append('image', file)
         formData.append('id', id)
@@ -45,14 +48,6 @@ function ContextProvider(props) {
         formData.append('freeshipping', isFreeShipping)
         formData.append('price', price)
 
-        // const newData = {}
-        // newData.id = id
-        // newData.title = title
-        // newData.description = textarea
-        // newData.size = JSON.stringify(size)
-        // newData.freeshipping = isFreeShipping
-        // newData.image = file
-        // newData.price = price
         isEditAction ? axios.put(`${ADMIN_URL}/${id}`, formData)
             .then(res => {
                 setData(res.data)
@@ -96,13 +91,31 @@ function ContextProvider(props) {
         })
     }
 
+
     useEffect(() => {
         axios.get(ADMIN_URL)
             .then(res => setData(res.data))
-    }, [])
 
+    }, [])
+    let quantity = 1;
+    function addToCart(item) {
+
+        // for (let i = 0; i <= cartItems.length; i++) {
+        //     if (cartItems[i].id === item.id) {
+        //         item['quantity'] = ++quantity
+        //     }
+        // }
+        setCartItems(prevItems => [...prevItems, item])
+
+    }
+
+    function removeCartItem(item) {
+        if (item) {
+            setCartItems(prevItems => prevItems.filter(i => i.id !== item.id))
+        }
+    }
     return (
-        <Context.Provider value={{ isClicked, handleClick, id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction }}>
+        <Context.Provider value={{ isClicked, handleClick, id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction, addToCart, cartItems, removeCartItem }}>
             {props.children}
         </Context.Provider>
     )

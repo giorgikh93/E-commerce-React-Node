@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "image": "",
+    "id": "1",
+    "title": "Build.com.ge",
+    "description": "",
+    "size": {
+      "XS": false,
+      "S": false,
+      "M": true,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": ""
+  },
+  {
+    "id": "2",
+    "title": "Build.com.ge",
+    "description": "",
+    "size": {
+      "XS": true,
+      "S": true,
+      "M": true,
+      "L": false,
+      "XL": true,
+      "XXL": true
+    },
+    "freeshipping": true,
+    "price": "",
+    "image": "1590089703766-shirt.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Jacket",
+    "description": "",
+    "size": {
+      "XS": false,
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "",
+    "image": "1590090825737-black.jpg"
+  },
+  {
+    "id": "3",
+    "title": "",
+    "description": "",
+    "size": {
+      "XS": true,
+      "S": true,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "",
+    "image": "1590091939056-ww.jpg"
+  },
+  {
+    "id": "1",
+    "title": "",
+    "description": "",
+    "size": {
+      "XS": false,
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": false,
+    "price": "",
+    "image": "1590092094129-shirt.jpg"
+  }
+]

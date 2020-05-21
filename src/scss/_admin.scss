@@ -16,6 +16,15 @@
     .addProduct{
         display: flex;
         justify-content: center;
+        form{
+            width: 20%;
+        }
+    }
+    button{
+        padding: 10px;
+        margin-top: 10px;
+        width: 100px;
+        margin: 10px auto;
     }
 }
 .adminForms{
@@ -38,4 +47,22 @@
         }
     }
  
+}
+        
+.sizeCheckbox{
+    display: flex;
+    align-items: center;
+}
+.adminEdit{
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+}
+.adminDelete{
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

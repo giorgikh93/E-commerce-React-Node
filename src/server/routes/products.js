@@ -12,7 +12,7 @@ const imageName = Date.now() + '-';
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './src/pictures')
+        cb(null, './public/pictures')
 
     },
 
@@ -46,14 +46,14 @@ router.route('/admin').post((req, res) => {
         }
         const body = req.body
         const file = req.file
-        savedProducts = productHandler.getProducts()
-        body.size = JSON.parse(body.size)
+    
+        body.size   = JSON.parse(body.size)
+        body.image  = ( file != undefined ? `${imageName}${file.originalname}` : '' )
+
         body.freeshipping = JSON.parse(body.freeshipping)
 
-        if (file != undefined) {
-            body.image = `${imageName}${file.originalname}`
-        }
         productHandler.addProduct(body)
+
         return res.status(200).send(productHandler.getProducts())
     })
 })
@@ -78,14 +78,14 @@ router.route('/admin/:id').put((req, res) => {
 
         const body = req.body
         const file = req.file
-        savedProducts = productHandler.getProducts()
-        body.size = JSON.parse(body.size)
+
+        body.size   = JSON.parse(body.size)
+        body.image  = ( file != undefined ? `${imageName}${file.originalname}` : '' )
+
         body.freeshipping = JSON.parse(body.freeshipping)
 
-        if (file != undefined) {
-            body.image = `${imageName}${file.originalname}`
-        }
         productHandler.updateProduct(body.id, body)
+
         return res.status(200).send(productHandler.getProducts())
     })
 

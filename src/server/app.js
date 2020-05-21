@@ -8,17 +8,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-/////////////////
-// const multer = require('multer');
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         cb(null, './src/pictures')
-//     },
-//     filename: function (req, file, cb) {
-//         cb(null, Date.now() + '-' + file.originalname)
-//     }
-// });
-// const upload = multer({ storage: storage }).single('image')
 
 app.use( products);
 
