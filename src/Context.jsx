@@ -34,11 +34,10 @@ function ContextProvider(props) {
         setFile(null)
         setPrice('')
     }
-    
+
     function handlePostRequest(e) {
         e.preventDefault()
         e.stopPropagation()
-        
         const formData = new FormData()
         formData.append('image', file)
         formData.append('id', id)
