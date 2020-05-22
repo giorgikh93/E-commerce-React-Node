@@ -33,11 +33,11 @@ class ProductHandler {
         this.commit()
     }
 
-    
+    //getProductByID
     getProductById(productId) {
         return this.products.find(({ id }) => id === productId);
     }
-
+    //updateProduct
     updateProduct(productId, product) {
         console.log(product)
         let idx = this.products.findIndex(({ id }) => id === productId);
@@ -45,7 +45,7 @@ class ProductHandler {
         this.commit()
       
     }
-
+    //deleteProduct
     deleteProduct(productId) {
         let idx = this.products.findIndex(({ id }) => id === productId);
         this.products.splice(idx, 1);

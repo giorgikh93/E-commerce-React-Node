@@ -1,16 +1,24 @@
 import { useState } from 'react'
 
 
-function UseClick(bool) {
+function UseClick(bool,number) {
     const [isClicked, setIsClicked] = useState(bool)
+    const [quantity,setQuantity] = useState(number)
+    const [click,setClick] = useState(false)
 
+
+    function handleClick2() {
+        setClick(prevState => !prevState)
+    }
 
 
     function handleClick() {
         setIsClicked(prevState => !prevState)
     }
-
-    return { isClicked, handleClick }
+    function increment(){
+        setQuantity(prev => prev)
+    }
+    return { isClicked, handleClick,increment,handleClick2}
 
 }
 

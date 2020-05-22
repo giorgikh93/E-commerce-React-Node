@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Consumer } from '../Context'
 
 
@@ -30,7 +30,6 @@ function AdminForm(props) {
         let available = inStock.join(',')
         return available
     }
-
     const pictures = data.map((item, index) => {
         return <tr key={index}>
             <td> {item.id}</td>
@@ -41,21 +40,21 @@ function AdminForm(props) {
             <td>{item.price}</td>
             <td>
                 {
-                    item.image != '' ?
+                    item.image !== '' ?
                         <img src={`/pictures/${item.image}`} style={{ width: '100px', height: '100px' }} alt='img' />
-                    : ''
+                        : ''
                 }
             </td>
             <td><button className='adminEdit' onClick={() => handleEdit(item.id)}>Edit</button> <button className='adminDelete' onClick={() => handleDelete(item.id)}>Delete</button></td>
         </tr>
-    }
+
+     }
     )
     function handleBlur() {
         if (!id) {
             idRef.current.focus()
         }
     }
-
     return (
         <div>
             <div className='adminForms'>
@@ -90,7 +89,7 @@ function AdminForm(props) {
                         <div className='sizeCheckbox'>
 
                             Available Sizes:
-                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : false } onChange={handleSize} />XS
+                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : false} onChange={handleSize} />XS
                     <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
                    <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
                    <input type="checkbox" value='L' checked={size.L} onChange={handleSize} />L

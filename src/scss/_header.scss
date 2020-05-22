@@ -10,7 +10,20 @@
     font-size: 25px;
     border: 2px solid  $mainColor;
 }
-
+.fa.fa-shopping-bag{
+    position: relative;
+    font-size: 20px;
+}
+.productCounter{
+    position: absolute;
+    border-radius: 60%;
+    padding: 0 2px;
+    background-color: #F14152;
+    color: white;
+    right: -1px;
+    top: 0;
+    font-size: 10px;
+}
 .fa.fa-bars,.fa.fa-times{
     cursor: pointer;
     font-size: 20px;

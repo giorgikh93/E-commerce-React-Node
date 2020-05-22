@@ -1,39 +1,60 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Filter from '../components/Filter'
 import MainContent from '../components/MainContent'
 import { Consumer } from '../Context'
-
+import useSize from '../Hooks/UseSize'
 
 function Home() {
+    const { buttonClick, setButtonClick } = useSize()
 
-    const { data, setData } = useContext(Consumer)
+    const { data } = useContext(Consumer)
     const [filteredData, setFilteredData] = useState([])
     const [clicked, setIsClicked] = useState(false)
-    const [buttonClick, setButtonClick] = useState({ XS: false, S: false, M: false, L: false, XL: false, XXL: false })
-    // const [truth, setTruth] = useState([])
-
-   
 
 
-    // function func() {
-    //     for (let i in buttonClick) {
-    //         if (buttonClick[i] === true) {
-    //             setTruth(i)
-    //         }
-    //     }
-    // }
+    function func3() {
+        for (let i in buttonClick) {
+            if (buttonClick[i] === true) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
 
+
+    function func() {
+        for (let i in buttonClick) {
+            if (buttonClick[i] === true) {
+                return i
+            }
+        }
+    }
+
+    function func2(func, item) {
+        if (item.size[func()] !== true) {
+            return 'none'
+        } else {
+            return undefined
+        }
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     function filterBySize(e) {
+
+        setIsClicked(prev => !prev)
         const { value } = e.target
+
         setButtonClick(prev => {
             return {
                 ...prev,
                 [value]: !prev[value]
             }
         })
+        let result = data.filter(item => item.size[value] === true)
 
-        // setIsClicked(prev => !prev)
-        // let result = data.filter(item => {
+        // let result = data.find(item => {
         //     for (let i in item.size) {
         //         if (item.size[value] === true) {
         //             return item
@@ -41,35 +62,14 @@ function Home() {
         //     }
         // })
 
-        // let result = data.filter(item => {
-        //     for (let i in item.size) {
-        //         for (let j of truth) {
-        //             if (i === j) {
-        //               return item
-        //             }
-        //         }
-        //     }
-        // })
-        // setFilteredData(result)
-
+        setFilteredData(result)
     }
-
-    function sort(e) {
-        const { value } = e.target
-        if (value === 'Lowest-Highiest') {
-            let sorted = data.sort((a, b) => a.price - b.price)
-        } else if (value === 'Highest-Lowest') {
-            let sorted = data.sort((a, b) => b.price - a.price)
-            return setData(sorted)
-        } else {
-            return
-        }
-    }
-
+    console.log(filteredData)
+    
     return (
         <div >
-            <Filter filterBySize={filterBySize} data={clicked ? filteredData : data} buttonClick={buttonClick} sort={sort} />
-            <MainContent className='mainContent' data={clicked ? filteredData : data} />
+            <Filter filterBySize={filterBySize} data={clicked ? filteredData : data} buttonClick={buttonClick}  />
+            <MainContent className='mainContent' data={clicked ? filteredData : data} func={func} func2={func2} func3={func3} isClicked={clicked} />
         </div>
     )
 }

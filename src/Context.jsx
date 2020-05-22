@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import useClick from './Hooks/useClick'
-import CartItems from './components/CartItems'
+
 
 const Context = React.createContext()
 
 
 function ContextProvider(props) {
 
-    const { isClicked, handleClick } = useClick(false)
+    const { isClicked, handleClick, handleClick2, increment } = useClick(false)
 
     ////State/////
     const [id, setId] = useState('')
@@ -22,6 +22,7 @@ function ContextProvider(props) {
     const [isEditAction, setIsEditAction] = useState(false)
     ////
     const [cartItems, setCartItems] = useState([])
+
     /////
     const ADMIN_URL = 'http://localhost:5000/admin'
 
@@ -34,6 +35,7 @@ function ContextProvider(props) {
         setFile(null)
         setPrice('')
     }
+
 
     function handlePostRequest(e) {
         e.preventDefault()
@@ -96,28 +98,43 @@ function ContextProvider(props) {
             .then(res => setData(res.data))
 
     }, [])
+
     let quantity = 1;
     function addToCart(item) {
-
-        // for (let i = 0; i <= cartItems.length; i++) {
-        //     if (cartItems[i].id === item.id) {
-        //         item['quantity'] = ++quantity
-        //     }
-        // }
-        setCartItems(prevItems => [...prevItems, item])
-
+          
+        const product = cartItems.find(({ id }) => id === item.id)
+        if (product) {
+            product.quantity += 1
+        } else {
+            item['quantity'] = quantity
+            setCartItems(prevItems => [...prevItems, item])
+        }
     }
+
 
     function removeCartItem(item) {
         if (item) {
             setCartItems(prevItems => prevItems.filter(i => i.id !== item.id))
         }
     }
+    function sort(e) {
+        handleClick2()
+        const { value } = e.target
+        if (value === 'Lowest-Highiest') {
+            setData(prev => prev.sort((a, b) => a.price - b.price))
+        } else if (value === 'Highest-Lowest') {
+            setData(prev => prev.sort((a, b) => b.price - a.price))
+        }
+    }
+
     return (
-        <Context.Provider value={{ isClicked, handleClick, id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction, addToCart, cartItems, removeCartItem }}>
+        <Context.Provider value={{
+            isClicked, handleClick,
+            id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction,
+            addToCart, cartItems, removeCartItem, sort
+        }}>
             {props.children}
         </Context.Provider>
     )
 }
-
 export { ContextProvider, Context as Consumer } 

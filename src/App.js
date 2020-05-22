@@ -7,6 +7,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
 import Cart from './pages/Cart'
+import Item from './pages/Item'
 import './scss/base.scss'
 
 
@@ -33,6 +34,9 @@ function App() {
           <Route  path='/cart'>
             <Cart />
           </Route>
+          <Route  path='/item/:itemId'>
+            <Item />
+          </Route>
         </Switch>
       </div>
     </>
@@ -40,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default (App);
