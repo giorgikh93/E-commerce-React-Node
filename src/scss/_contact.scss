@@ -12,21 +12,32 @@
         height: 364px;
         justify-content: space-between;
         textarea{
-            &::placeholder{
-                padding: 15px;
-            }
+            padding: 10px;
         }
-        input{
-            padding: 10px 0;
-            &::placeholder{
-                padding: 15px;
-            }
+        input,button{
+            padding: 10px 10px;
+          
+        }
+        button:disabled{
+            background-color: gray;
         }
     }
 }
+
 .submit{
-    background-color: $mainColor;
+    outline:none;
     border: none;
     color: white;
     cursor: pointer;
+}
+.green{
+    background-color: rgb(21, 128, 21);
+    transition: 0.5s;
+    font-weight: bold;
+
+}
+.dark{
+    background-color: $mainColor;
+    font-weight: bold;
+    transition: 0.7s;
 }

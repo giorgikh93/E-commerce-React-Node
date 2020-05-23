@@ -8,7 +8,7 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
 
-    const { isClicked, handleClick, handleClick2, increment } = useClick(false)
+    const { isClicked, handleClick, handleClick2 } = useClick(false)
 
     ////State/////
     const [id, setId] = useState('')
@@ -26,16 +26,17 @@ function ContextProvider(props) {
     /////
     const ADMIN_URL = 'http://localhost:5000/admin'
 
-    function resetFields() {
-        setId('')
-        setTitle('')
-        setTextArea('')
-        setSize({ S: false, M: false, L: false, XL: false, XXL: false })
-        setIsFreeShipping(false)
-        setFile(null)
-        setPrice('')
-    }
 
+    // debugger;
+    // function resetFields() {
+    //     setId('')
+    //     setTitle('')
+    //     setTextArea('')
+    //     setSize({ S: false, M: false, L: false, XL: false, XXL: false })
+    //     setIsFreeShipping(false)
+    //     setFile(null)
+    //     setPrice('')
+    // }
 
     function handlePostRequest(e) {
         e.preventDefault()
@@ -53,12 +54,12 @@ function ContextProvider(props) {
             .then(res => {
                 setData(res.data)
                 setIsEditAction(false)
-                resetFields()
+                // resetFields()
             })
             : axios.post(ADMIN_URL, formData)
                 .then(res => {
                     setData(res.data)
-                    resetFields()
+                    // resetFields()
 
                 })
     }
@@ -97,7 +98,7 @@ function ContextProvider(props) {
         axios.get(ADMIN_URL)
             .then(res => setData(res.data))
 
-    }, [])
+    },[])
 
     let quantity = 1;
     function addToCart(item) {
@@ -117,6 +118,8 @@ function ContextProvider(props) {
             setCartItems(prevItems => prevItems.filter(i => i.id !== item.id))
         }
     }
+
+
     function sort(e) {
         handleClick2()
         const { value } = e.target
@@ -131,7 +134,7 @@ function ContextProvider(props) {
         <Context.Provider value={{
             isClicked, handleClick,
             id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction,
-            addToCart, cartItems, removeCartItem, sort
+            addToCart, cartItems, removeCartItem, sort,setCartItems
         }}>
             {props.children}
         </Context.Provider>

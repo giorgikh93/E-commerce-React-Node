@@ -103,4 +103,10 @@ router.route('/admin/:id').delete((req, res) => {
 })
 
 
+router.route('/contact').post((req,res)=>{
+    const text = req.body.data
+    productHandler.addContactText(text)
+    res.send('Your message has been sent').status(200)
+})
+
 module.exports = router;

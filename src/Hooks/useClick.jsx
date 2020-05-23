@@ -18,7 +18,7 @@ function UseClick(bool,number) {
     function increment(){
         setQuantity(prev => prev)
     }
-    return { isClicked, handleClick,increment,handleClick2}
+    return { isClicked,setIsClicked, handleClick,increment,handleClick2}
 
 }
 

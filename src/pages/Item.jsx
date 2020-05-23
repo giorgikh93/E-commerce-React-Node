@@ -10,7 +10,6 @@ function Item() {
     const { itemId } = useParams()
     const product = data.find(({ id }) => id === itemId)
 
-console.log(buttonClick)
     return (
 <>
     {!product ? 'Cart is Empty' :

@@ -1,18 +1,98 @@
 [
   {
     "id": "1",
-    "title": "",
-    "description": "",
+    "title": "Jacket",
+    "description": "good jacket ",
+    "size": {
+      "XS": false,
+      "S": false,
+      "M": true,
+      "L": true,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "25",
+    "image": "1590225850881-black.jpg"
+  },
+  {
+    "id": "2",
+    "title": "white jacket",
+    "description": "white jacket with modern stripes made by zara production",
+    "size": {
+      "XS": true,
+      "S": true,
+      "M": true,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "40",
+    "image": "1590225882314-ww.jpg"
+  },
+  {
+    "id": "3",
+    "title": "White shirt",
+    "description": "white shirt with nothing ",
+    "size": {
+      "XS": false,
+      "S": true,
+      "M": false,
+      "L": false,
+      "XL": true,
+      "XXL": false
+    },
+    "freeshipping": false,
+    "price": "70",
+    "image": "1590225920357-shirt.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Orange shirt",
+    "description": "sad",
     "size": {
       "XS": false,
       "S": false,
       "M": false,
       "L": false,
+      "XL": true,
+      "XXL": true
+    },
+    "freeshipping": false,
+    "price": "190",
+    "image": "1590244344614-orange.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Jacket",
+    "description": "white jacket with modern stripes made by zara production",
+    "size": {
+      "XS": false,
+      "S": true,
+      "M": false,
+      "L": false,
       "XL": false,
       "XXL": false
     },
-    "freeshipping": false,
-    "price": "",
-    "image": "1590172411973-black.jpg"
+    "freeshipping": true,
+    "price": "24",
+    "image": "1590238263456-ww.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Jacket",
+    "description": "white jacket with modern stripes made by zara production",
+    "size": {
+      "XS": false,
+      "S": true,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "24",
+    "image": "1590244248657-black.jpg"
   }
 ]

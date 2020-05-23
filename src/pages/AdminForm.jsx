@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef} from 'react'
 import { Consumer } from '../Context'
 
 
@@ -80,7 +80,7 @@ function AdminForm(props) {
 
             <div className='addProduct'>
                 {props.isClicked &&
-                    <form method="POST">
+                    <form method="">
                         id:<input ref={idRef} type="number" name='id' value={id} onChange={(e) => setId(e.target.value)} onBlur={handleBlur} />
                    Title:<input type="text" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
                    Description: <textarea value={textarea} onChange={(e) => setTextArea(e.target.value)} />

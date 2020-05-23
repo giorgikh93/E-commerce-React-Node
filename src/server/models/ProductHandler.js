@@ -3,9 +3,26 @@ const fs = require('fs')
 class ProductHandler {
     constructor() {
         this.products = []
-
+        this.contacts = []
         this.fill()
+        this.fillContacts()
     }
+
+    fillContacts() {
+        fs.readFile('contact.json', function (err, data) {
+            this.contacts = JSON.parse(data.toString())
+        }.bind(this))
+    }
+    
+    commitContact() {
+        fs.writeFile('contact.json', JSON.stringify(this.contacts,null,2),  (err)=>{
+            if(err){
+                return 'there is an error'
+            }
+            console.log('successfully saved')
+        })
+    }
+
 
     fill() {
         fs.readFile('data.json', function (err, data) {
@@ -52,6 +69,11 @@ class ProductHandler {
         this.commit()
 
       }
-    
+    //////addContacts
+    addContactText(text){
+        this.contacts.push(text)
+        this.commitContact()
+        console.log(this.contacts)
+    }
 }
 module.exports = ProductHandler;

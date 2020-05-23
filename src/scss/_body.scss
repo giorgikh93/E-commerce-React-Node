@@ -14,10 +14,15 @@
 }
 .sideBar {
     li{
-    padding-top: 20px;
+    padding-bottom: 40px;
     color: $mainColor;
     font-weight: bold;
     opacity: 0.8;
+    transition: .3;
+    &:hover{
+        color: black;
+        opacity: 1;
+    }
     }
 }
 .none{

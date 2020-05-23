@@ -1,13 +1,10 @@
 .individualProductWrapper{
     display: flex;
     align-items: space-between;
-    height: 400px;
     padding: 50px;
-
     img{
+        max-width: 440px;
         width: 100%;
-        height:  100%;
-
     }
     h1{
         font-size: 18px;
@@ -16,9 +13,10 @@
     p{
         font-size: 14px;
         padding: 20px 0;
+        line-height: 1.4;
+        color: $mainColor;
     }
     span{
-        color:  $mainColor;
         font-weight: bold;
         padding: 20px 0;
     }
