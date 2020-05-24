@@ -8,7 +8,7 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
 
-    const { isClicked, handleClick, handleClick2 } = useClick(false)
+    const { isClicked, handleClick,handleClick2 } = useClick(false)
 
     ////State/////
     const [id, setId] = useState('')
@@ -27,16 +27,15 @@ function ContextProvider(props) {
     const ADMIN_URL = 'http://localhost:5000/admin'
 
 
-    // debugger;
-    // function resetFields() {
-    //     setId('')
-    //     setTitle('')
-    //     setTextArea('')
-    //     setSize({ S: false, M: false, L: false, XL: false, XXL: false })
-    //     setIsFreeShipping(false)
-    //     setFile(null)
-    //     setPrice('')
-    // }
+    function resetFields() {
+        setId('')
+        setTitle('')
+        setTextArea('')
+        setSize({ S: false, M: false, L: false, XL: false, XXL: false })
+        setIsFreeShipping(false)
+        setFile(null)
+        setPrice('')
+    }
 
     function handlePostRequest(e) {
         e.preventDefault()
@@ -54,13 +53,12 @@ function ContextProvider(props) {
             .then(res => {
                 setData(res.data)
                 setIsEditAction(false)
-                // resetFields()
+                resetFields()
             })
             : axios.post(ADMIN_URL, formData)
                 .then(res => {
                     setData(res.data)
-                    // resetFields()
-
+                    resetFields()
                 })
     }
 
@@ -98,11 +96,10 @@ function ContextProvider(props) {
         axios.get(ADMIN_URL)
             .then(res => setData(res.data))
 
-    },[])
+    }, [])
 
     let quantity = 1;
     function addToCart(item) {
-          
         const product = cartItems.find(({ id }) => id === item.id)
         if (product) {
             product.quantity += 1
@@ -112,7 +109,6 @@ function ContextProvider(props) {
         }
     }
 
-
     function removeCartItem(item) {
         if (item) {
             setCartItems(prevItems => prevItems.filter(i => i.id !== item.id))
@@ -120,21 +116,21 @@ function ContextProvider(props) {
     }
 
 
-    function sort(e) {
-        handleClick2()
-        const { value } = e.target
-        if (value === 'Lowest-Highiest') {
-            setData(prev => prev.sort((a, b) => a.price - b.price))
-        } else if (value === 'Highest-Lowest') {
-            setData(prev => prev.sort((a, b) => b.price - a.price))
-        }
-    }
+
 
     return (
         <Context.Provider value={{
             isClicked, handleClick,
-            id, setId, title, setTitle, textarea, setTextArea, size, setSize, isFreeShipping, setIsFreeShipping, file, setFile, price, setPrice, data, setData, handlePostRequest, handleSize, handleEdit, handleDelete, isEditAction,
-            addToCart, cartItems, removeCartItem, sort,setCartItems
+            id, setId, title, setTitle,
+            textarea, setTextArea, size,
+            setSize, isFreeShipping,
+            setIsFreeShipping, file,
+            setFile, price, setPrice,
+            data, setData, handlePostRequest,
+            handleSize, handleEdit, handleDelete,
+            isEditAction,
+            addToCart, cartItems,
+            removeCartItem, setCartItems
         }}>
             {props.children}
         </Context.Provider>

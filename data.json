@@ -1,98 +1,128 @@
 [
   {
     "id": "1",
-    "title": "Jacket",
-    "description": "good jacket ",
+    "title": "STRETCH SHIRT ",
+    "description": "Super slim fit shirt made of stretch poplin. Featuring a stand-up collar, long sleeves with buttoned cuffs and button-up front.",
+    "size": {
+      "XS": true,
+      "S": true,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": true,
+    "price": "50",
+    "image": "1590335860177-black.jpg"
+  },
+  {
+    "id": "2",
+    "title": "WHITE - 4197/470",
+    "description": "Slim fit short sleeve shirt with a stand-up collar and button-up front.",
+    "size": {
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": true,
+      "XXL": false
+    },
+    "freeshipping": false,
+    "price": "35",
+    "image": "1590334739067-shirt.jpg"
+  },
+  {
+    "id": "3",
+    "title": "ECRU - 4231/414",
+    "description": "Shirt made of printed knit fabric. Camp collar and short sleeves. Button-up front.",
     "size": {
       "XS": false,
       "S": false,
       "M": true,
       "L": true,
       "XL": false,
-      "XXL": false
+      "XXL": true
     },
     "freeshipping": true,
-    "price": "25",
-    "image": "1590225850881-black.jpg"
-  },
-  {
-    "id": "2",
-    "title": "white jacket",
-    "description": "white jacket with modern stripes made by zara production",
-    "size": {
-      "XS": true,
-      "S": true,
-      "M": true,
-      "L": false,
-      "XL": false,
-      "XXL": false
-    },
-    "freeshipping": true,
-    "price": "40",
-    "image": "1590225882314-ww.jpg"
-  },
-  {
-    "id": "3",
-    "title": "White shirt",
-    "description": "white shirt with nothing ",
-    "size": {
-      "XS": false,
-      "S": true,
-      "M": false,
-      "L": false,
-      "XL": true,
-      "XXL": false
-    },
-    "freeshipping": false,
-    "price": "70",
-    "image": "1590225920357-shirt.jpg"
+    "price": "80",
+    "image": "1590334779587-4231414712_1_1_1.jpg"
   },
   {
     "id": "4",
-    "title": "Orange shirt",
-    "description": "sad",
+    "title": "MUSTARD - 6264/461",
+    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
+    "size": {
+      "S": true,
+      "M": true,
+      "L": true,
+      "XL": false,
+      "XXL": false,
+      "XS": true
+    },
+    "freeshipping": false,
+    "price": "111",
+    "image": "1590334834651-6264461305_1_1_1.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Last Ball Shirt",
+    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
+    "size": {
+      "XS": true,
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": true
+    },
+    "freeshipping": true,
+    "price": "20",
+    "image": "1590334893012-ww.jpg"
+  },
+  {
+    "id": "6",
+    "title": "MAUVE - 6264/461",
+    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
+    "size": {
+      "S": false,
+      "M": true,
+      "L": true,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": false,
+    "price": "67",
+    "image": "1590334928455-6264461612_1_1_1.jpg"
+  },
+  {
+    "id": "7",
+    "title": "DROP PRINT SHIRT",
+    "description": "Slim fit collared shirt featuring long sleeves with buttoned cuffs and a button-up front.",
     "size": {
       "XS": false,
+      "S": false,
+      "M": true,
+      "L": true,
+      "XL": false,
+      "XXL": true
+    },
+    "freeshipping": true,
+    "price": "89",
+    "image": "1590334970090-6103403250_2_1_1.jpg"
+  },
+  {
+    "id": "8",
+    "title": "FLORAL PRINT SHIRT",
+    "description": "Slim fit collared shirt featuring long sleeves with buttoned cuffs and a button-up front.",
+    "size": {
       "S": false,
       "M": false,
       "L": false,
       "XL": true,
-      "XXL": true
-    },
-    "freeshipping": false,
-    "price": "190",
-    "image": "1590244344614-orange.jpg"
-  },
-  {
-    "id": "5",
-    "title": "Jacket",
-    "description": "white jacket with modern stripes made by zara production",
-    "size": {
-      "XS": false,
-      "S": true,
-      "M": false,
-      "L": false,
-      "XL": false,
-      "XXL": false
+      "XXL": false,
+      "XS": true
     },
     "freeshipping": true,
-    "price": "24",
-    "image": "1590238263456-ww.jpg"
-  },
-  {
-    "id": "6",
-    "title": "Jacket",
-    "description": "white jacket with modern stripes made by zara production",
-    "size": {
-      "XS": false,
-      "S": true,
-      "M": false,
-      "L": false,
-      "XL": false,
-      "XXL": false
-    },
-    "freeshipping": true,
-    "price": "24",
-    "image": "1590244248657-black.jpg"
+    "price": "45",
+    "image": "1590335051691-6103401250_2_1_1.jpg"
   }
 ]

@@ -56,7 +56,6 @@ class ProductHandler {
     }
     //updateProduct
     updateProduct(productId, product) {
-        console.log(product)
         let idx = this.products.findIndex(({ id }) => id === productId);
         this.products[idx] = product;
         this.commit()
@@ -73,7 +72,6 @@ class ProductHandler {
     addContactText(text){
         this.contacts.push(text)
         this.commitContact()
-        console.log(this.contacts)
     }
 }
 module.exports = ProductHandler;

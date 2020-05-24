@@ -1,46 +1,29 @@
-import React, { useContext,  useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Filter from '../components/Filter'
 import MainContent from '../components/MainContent'
 import { Consumer } from '../Context'
 import useSize from '../Hooks/UseSize'
+import useClick from '../Hooks/useClick'
+
+
 
 function Home() {
 
     const { buttonClick, setButtonClick } = useSize()
-    const { data } = useContext(Consumer)
-
+    const { data, setData } = useContext(Consumer)
+    const { handleClick2 } = useClick()
+    // const [sorted, setSorted] = useState(false)
 
     function func3() {
         for (let i in buttonClick) {
-            if (buttonClick[i] === true) {
+            if (buttonClick[i]) {
                 return true
             }
         }
     }
-
     useEffect(() => {
-        func3()
-        for (let i of data) {
-            if (i.size[func()] === true) {
-
-            }
-        }
+        func3();
     })
-
-    function func() {
-        for (let i in buttonClick) {
-            if (buttonClick[i] === true) {
-                return i
-            }
-        }
-    }
-
-    function func2(func, item) {
-        if (item.size[func()] !== true) {
-            return 'none'
-        }
-    }
-  
 
     function filterBySize(e) {
         const { value } = e.target
@@ -49,28 +32,45 @@ function Home() {
                 ...prev,
                 [value]: !prev[value]
             }
+
         })
+
     }
 
     let filteredData = []
 
-    for (let i in buttonClick) {
-        if (buttonClick[i] === true) {
+     for (let i in buttonClick) {
+        if (buttonClick[i]) {
             for (let j of data) {
-                if (j.size[i] === true) {
+                if (j.size[i]) {
                     if (!filteredData.includes(j)) {
                         filteredData.push(j)
                     }
                 }
             }
         }
+    }
+ 
+
+    function sort(e) {
+        // setSorted(prev => !prev)
+        const { value } = e.target
+        if (value === 'Lowest-Highiest') {
+            handleClick2()
+            setData(prev => prev.sort((a, b) => a.price - b.price))
+            // props.data.sort((a, b) => a.price - b.price)
+        } else if (value === 'Highest-Lowest') {
+            handleClick2()
+            setData(prev => prev.sort((a, b) => b.price - a.price))
+            // props.data.sort((a, b) => b.price - a.price)
+        }
 
     }
 
     return (
         <div >
-            <Filter filterBySize={filterBySize} data={func3() ? filteredData : data} buttonClick={buttonClick} />
-            <MainContent className='mainContent' data={func3() ? filteredData : data}  />
+            <Filter sort={sort} filterBySize={filterBySize} data={func3() ? filteredData : data} buttonClick={buttonClick} />
+            <MainContent className='mainContent' data={func3() ? filteredData : data} />
         </div>
     )
 }

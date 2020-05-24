@@ -13,7 +13,7 @@ function useSize() {
         })
     }
 
-    return { buttonClick, setButtonClick,changeSize }
+    return { buttonClick, setButtonClick,changeSize}
 
 }
 
