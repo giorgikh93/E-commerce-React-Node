@@ -1,11 +1,14 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import { Consumer } from '../Context'
 import CartItems from '../components/CartItems'
-
+import Axios from 'axios'
 
 function Cart() {
     const { cartItems } = useContext(Consumer)
-  
+    useEffect(()=>{
+        Axios.get('http://localhost:5000/cart')
+        .then(res=>console.log(res))
+    })
     return (
         <>
             {cartItems.length > 0 ? <CartItems /> : <div className='cart'>

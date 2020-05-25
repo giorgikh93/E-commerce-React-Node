@@ -107,6 +107,7 @@ function ContextProvider(props) {
             item['quantity'] = quantity
             setCartItems(prevItems => [...prevItems, item])
         }
+        axios.post('http://localhost:5000/cart',item)
     }
 
     function removeCartItem(item) {
@@ -115,7 +116,7 @@ function ContextProvider(props) {
         }
     }
 
-
+console.log(cartItems)
 
 
     return (
