@@ -70,28 +70,28 @@ class ProductHandler {
         this.commit()
 
     }
-    //////addContacts
+    //addContacts
     addContactText(text) {
         this.contacts.push(text)
         this.commitContact()
     }
 
-    ////getCartITems
+    //getCartITems
     getCartItems() {
         return this.cartItems
     }
-    ///getCartItemById
+    //getCartItemById
 
     getCartItemById(cartItemId) {
         return this.cartItems.find(({ id }) => id === cartItemId);
 
     }
 
-    ///addCArtItems
+    //addCArtItems
     addCartItems(item) {
         this.cartItems.push(item)
     }
-    ///updateCartItems
+    //updateCartItems
     updateCartItems(cartItemid, operator) {
         let cartItem = this.cartItems.find(({ id }) => id === cartItemid);
         if (operator === '+') {
@@ -103,14 +103,13 @@ class ProductHandler {
         }
         cartItem.total = cartItem.price * cartItem.quantity
     }
-    ////deleteCartItem
+    //deleteCartItem
     deleteCartItem(cartItemId) {
         let idx = this.cartItems.findIndex(({ id }) => id === cartItemId);
         this.cartItems.splice(idx, 1);
-
     }
 
-    ///removeAllProducts
+    //removeAllProducts
     removeAllProducts(){
         return this.cartItems = []
     }

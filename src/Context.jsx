@@ -11,7 +11,7 @@ const Context = React.createContext()
 function ContextProvider(props) {
     const { isClicked, handleClick } = useClick(false)
 
-    ////State/////
+    ////State for Forms and recieved Data/////
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
     const [textarea, setTextArea] = useState('')
@@ -29,6 +29,7 @@ function ContextProvider(props) {
 
 
     const ADMIN_URL = 'http://localhost:5000/admin'
+
     function resetFields() {
         setId('')
         setTitle('')
@@ -63,6 +64,7 @@ function ContextProvider(props) {
                     resetFields()
                 })
     }
+
 
     function handleEdit(id) {
         setIsEditAction(true)
@@ -101,16 +103,24 @@ function ContextProvider(props) {
     }, [])
 
 
-
-//////////Menage Cart////////////
+    //////////Menage Cart////////////
 
     const CART_URL = 'http://localhost:5000/cart'
 
 
     function removeItemFromCart(item) {
-        axios.delete(CART_URL, item)
+        axios.delete(CART_URL,
+            {
+                headers: {
+                    Authorization: true
+                },
+                data: {
+                    source: item
+                }
+            })
             .then(res => setCartData(res.data))
     }
+
     function addToCart(item, operator) {
         const data = {
             item: item,
@@ -138,8 +148,8 @@ function ContextProvider(props) {
             })
         return () => isSubscribed = false
     }, [])
-    
-//////////////
+
+    //////////////
 
     return (
         <Context.Provider value={{
@@ -151,7 +161,8 @@ function ContextProvider(props) {
             setFile, price, setPrice,
             data, setData, handlePostRequest,
             handleSize, handleEdit, handleDelete,
-            isEditAction, addToCart, total, removeItemFromCart, cartData
+            isEditAction, addToCart, total, removeItemFromCart,
+            cartData
         }}>
             {props.children}
         </Context.Provider>

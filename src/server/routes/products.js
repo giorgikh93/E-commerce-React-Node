@@ -28,7 +28,6 @@ const storage = multer.diskStorage({
     },
 
     filename: function (req, file, cb) {
-        console.log(file)
         cb(null, imageName + file.originalname)
     }
 });
@@ -126,7 +125,6 @@ router.route('/cart').post((req, res) => {
     let productId = req.body.item.id
     let operator = req.body.operator
     const products = productHandler.getCartItems()
-
     const item = productHandler.getCartItemById(productId)
 
     if (item) {
@@ -151,7 +149,7 @@ router.route('/cart').get((req, res) => {
 
 
 router.route('/cart').delete((req, res) => {
-    const productId = req.body.id
+    const productId = req.body.source.id
     productHandler.deleteCartItem(productId)
     const products = productHandler.getCartItems()
     req.session.cart = products

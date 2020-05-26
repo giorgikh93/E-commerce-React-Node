@@ -16,25 +16,25 @@ function App() {
     <>
       <Header />
       <hr />
-      <Sidebar/>
+      <Sidebar />
       <div className='bodyWrapper'>
         <Switch>
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route  path='/about'>
+          <Route path='/about'>
             <About />
           </Route>
-          <Route  path='/contact'>
+          <Route path='/contact'>
             <Contact />
           </Route>
-          <Route  path='/admin'>
+          <Route path='/admin'>
             <Admin />
           </Route>
-          <Route  path='/cart'>
+          <Route path='/cart'>
             <Cart />
           </Route>
-          <Route  path='/item/:itemId'>
+          <Route path='/item/:itemId'>
             <Item />
           </Route>
         </Switch>

@@ -15,8 +15,6 @@ function CartItems() {
                 <div>Total:<span>{item.total} GEL</span></div>
             </div>
         </div>
-
-
         <div className='cartButtons'>
             <button className='remove' onClick={() => removeItemFromCart(item)}>Remove</button>
             <div className='quantity'>

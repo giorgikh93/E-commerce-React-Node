@@ -1,4 +1,4 @@
-import React, { useContext, useRef} from 'react'
+import React, { useContext, useRef } from 'react'
 import { Consumer } from '../Context'
 
 
@@ -48,7 +48,7 @@ function AdminForm(props) {
             <td><button className='adminEdit' onClick={() => handleEdit(item.id)}>Edit</button> <button className='adminDelete' onClick={() => handleDelete(item.id)}>Delete</button></td>
         </tr>
 
-     }
+    }
     )
     function handleBlur() {
         if (!id) {
@@ -80,7 +80,7 @@ function AdminForm(props) {
 
             <div className='addProduct'>
                 {props.isClicked &&
-                    <form method="">
+                    <form>
                         id:<input ref={idRef} type="number" name='id' value={id} onChange={(e) => setId(e.target.value)} onBlur={handleBlur} />
                    Title:<input type="text" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
                    Description: <textarea value={textarea} onChange={(e) => setTextArea(e.target.value)} />
@@ -89,7 +89,7 @@ function AdminForm(props) {
                         <div className='sizeCheckbox'>
 
                             Available Sizes:
-                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : false} onChange={handleSize} />XS
+                    <input type="checkbox" value='XS' checked={size.XS} onChange={handleSize} />XS
                     <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
                    <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
                    <input type="checkbox" value='L' checked={size.L} onChange={handleSize} />L

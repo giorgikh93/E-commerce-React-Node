@@ -16,21 +16,6 @@
     "image": "1590335860177-black.jpg"
   },
   {
-    "id": "2",
-    "title": "WHITE - 4197/470",
-    "description": "Slim fit short sleeve shirt with a stand-up collar and button-up front.",
-    "size": {
-      "S": false,
-      "M": false,
-      "L": false,
-      "XL": true,
-      "XXL": false
-    },
-    "freeshipping": false,
-    "price": "35",
-    "image": "1590334739067-shirt.jpg"
-  },
-  {
     "id": "3",
     "title": "ECRU - 4231/414",
     "description": "Shirt made of printed knit fabric. Camp collar and short sleeves. Button-up front.",
@@ -45,22 +30,6 @@
     "freeshipping": true,
     "price": "80",
     "image": "1590334779587-4231414712_1_1_1.jpg"
-  },
-  {
-    "id": "4",
-    "title": "MUSTARD - 6264/461",
-    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
-    "size": {
-      "S": true,
-      "M": true,
-      "L": true,
-      "XL": false,
-      "XXL": false,
-      "XS": true
-    },
-    "freeshipping": false,
-    "price": "111",
-    "image": "1590334834651-6264461305_1_1_1.jpg"
   },
   {
     "id": "6",
@@ -125,5 +94,36 @@
     "freeshipping": true,
     "price": "25",
     "image": "1590492239292-6103403250_2_1_1.jpg"
+  },
+  {
+    "id": "2",
+    "title": "WHITE - 4197/470",
+    "description": "Shirt made of printed knit fabric. Camp collar and short sleeves. Button-up front",
+    "size": {
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false,
+      "XS": true
+    },
+    "freeshipping": true,
+    "price": "53",
+    "image": "1590515930841-6103401250_2_1_1.jpg"
+  },
+  {
+    "id": "4",
+    "title": "STRETCH SHIRT",
+    "description": "Super slim fit shirt made of stretch poplin. Featuring a stand-up collar, long sleeves with buttoned cuffs and button-up front.",
+    "size": {
+      "S": false,
+      "M": true,
+      "L": false,
+      "XL": false,
+      "XXL": false
+    },
+    "freeshipping": false,
+    "price": "78",
+    "image": "1590516058888-4431357615_2_1_1.jpg"
   }
 ]
