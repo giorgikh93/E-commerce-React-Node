@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 function MainContent(props) {
     const { addToCart } = useContext(Consumer)
+
     const products = props.data.map((item, index) => <div className={`gallery`} key={index}>
         <div className='picture'>
             <Link to={`/item/${item.id}`}>  <img src={`/pictures/${item.image}`} alt="i" /></Link>

@@ -63,8 +63,40 @@
     "image": "1590334834651-6264461305_1_1_1.jpg"
   },
   {
-    "id": "5",
-    "title": "Last Ball Shirt",
+    "id": "6",
+    "title": "Jacket",
+    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
+    "size": {
+      "XS": false,
+      "S": false,
+      "M": false,
+      "L": false,
+      "XL": true,
+      "XXL": true
+    },
+    "freeshipping": false,
+    "price": "67",
+    "image": "1590426543738-6264461612_1_1_1.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Yellow Shirt",
+    "description": "\tComfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
+    "size": {
+      "S": true,
+      "M": false,
+      "L": false,
+      "XL": false,
+      "XXL": false,
+      "XS": true
+    },
+    "freeshipping": true,
+    "price": "89",
+    "image": "1590426576454-6264461305_1_1_1.jpg"
+  },
+  {
+    "id": "9",
+    "title": "WHITE - 4197/470",
     "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
     "size": {
       "XS": true,
@@ -75,54 +107,23 @@
       "XXL": true
     },
     "freeshipping": true,
-    "price": "20",
-    "image": "1590334893012-ww.jpg"
-  },
-  {
-    "id": "6",
-    "title": "MAUVE - 6264/461",
-    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
-    "size": {
-      "S": false,
-      "M": true,
-      "L": true,
-      "XL": false,
-      "XXL": false
-    },
-    "freeshipping": false,
     "price": "67",
-    "image": "1590334928455-6264461612_1_1_1.jpg"
-  },
-  {
-    "id": "7",
-    "title": "DROP PRINT SHIRT",
-    "description": "Slim fit collared shirt featuring long sleeves with buttoned cuffs and a button-up front.",
-    "size": {
-      "XS": false,
-      "S": false,
-      "M": true,
-      "L": true,
-      "XL": false,
-      "XXL": true
-    },
-    "freeshipping": true,
-    "price": "89",
-    "image": "1590334970090-6103403250_2_1_1.jpg"
+    "image": "1590431147762-ww.jpg"
   },
   {
     "id": "8",
-    "title": "FLORAL PRINT SHIRT",
-    "description": "Slim fit collared shirt featuring long sleeves with buttoned cuffs and a button-up front.",
+    "title": "White Shirt",
+    "description": "Comfort fit shirt with a camp collar and short sleeves. Featuring a chest patch pocket, side vents at the hem and a button-up front.",
     "size": {
+      "XS": true,
       "S": false,
       "M": false,
       "L": false,
-      "XL": true,
-      "XXL": false,
-      "XS": true
+      "XL": false,
+      "XXL": false
     },
     "freeshipping": true,
-    "price": "45",
-    "image": "1590335051691-6103401250_2_1_1.jpg"
+    "price": "25",
+    "image": "1590492239292-6103403250_2_1_1.jpg"
   }
 ]

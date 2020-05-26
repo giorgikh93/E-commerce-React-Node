@@ -1,20 +1,19 @@
-import React,{useContext, useEffect} from 'react'
-import { Consumer } from '../Context'
+import React, { useContext } from 'react'
 import CartItems from '../components/CartItems'
-import Axios from 'axios'
+import { Consumer } from '../Context'
+
 
 function Cart() {
-    const { cartItems } = useContext(Consumer)
-    useEffect(()=>{
-        Axios.get('http://localhost:5000/cart')
-        .then(res=>console.log(res))
-    })
+    const { cartData } = useContext(Consumer)
+
     return (
         <>
-            {cartItems.length > 0 ? <CartItems /> : <div className='cart'>
-                <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-                <h1>Cart is Empty</h1>
-            </div>}
+            {cartData.length > 0 ?
+                <CartItems />
+                : <div className='cart'>
+                    <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <h1>Cart is Empty</h1>
+                </div>}
 
         </>
     )

@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 import Filter from '../components/Filter'
 import MainContent from '../components/MainContent'
 import { Consumer } from '../Context'
 import useSize from '../Hooks/UseSize'
 import useClick from '../Hooks/useClick'
-
 
 
 function Home() {

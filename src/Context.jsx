@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import useClick from './Hooks/useClick'
+axios.defaults.withCredentials = true
+
 
 
 const Context = React.createContext()
 
 
 function ContextProvider(props) {
-
-    const { isClicked, handleClick,handleClick2 } = useClick(false)
+    const { isClicked, handleClick } = useClick(false)
 
     ////State/////
     const [id, setId] = useState('')
@@ -20,13 +21,14 @@ function ContextProvider(props) {
     const [price, setPrice] = useState('')
     const [data, setData] = useState([])
     const [isEditAction, setIsEditAction] = useState(false)
+
+    /////state for Cart 
+    const [cartData, setCartData] = useState([])
     ////
-    const [cartItems, setCartItems] = useState([])
 
-    /////
+
+
     const ADMIN_URL = 'http://localhost:5000/admin'
-
-
     function resetFields() {
         setId('')
         setTitle('')
@@ -98,26 +100,46 @@ function ContextProvider(props) {
 
     }, [])
 
-    let quantity = 1;
-    function addToCart(item) {
-        const product = cartItems.find(({ id }) => id === item.id)
-        if (product) {
-            product.quantity += 1
-        } else {
-            item['quantity'] = quantity
-            setCartItems(prevItems => [...prevItems, item])
+
+
+//////////Menage Cart////////////
+
+    const CART_URL = 'http://localhost:5000/cart'
+
+
+    function removeItemFromCart(item) {
+        axios.delete(CART_URL, item)
+            .then(res => setCartData(res.data))
+    }
+    function addToCart(item, operator) {
+        const data = {
+            item: item,
+            operator: operator
         }
-        axios.post('http://localhost:5000/cart',item)
+        axios.post(CART_URL, data)
+            .then(res => setCartData(res.data))
     }
 
-    function removeCartItem(item) {
-        if (item) {
-            setCartItems(prevItems => prevItems.filter(i => i.id !== item.id))
+    function total() {
+        let total = 0
+        for (let i of cartData) {
+            total += +i.total
         }
+        return total
     }
 
-console.log(cartItems)
-
+    useEffect(() => {
+        let isSubscribed = true
+        axios.get(CART_URL)
+            .then(res => {
+                if (isSubscribed) {
+                    setCartData(res.data)
+                }
+            })
+        return () => isSubscribed = false
+    }, [])
+    
+//////////////
 
     return (
         <Context.Provider value={{
@@ -129,9 +151,7 @@ console.log(cartItems)
             setFile, price, setPrice,
             data, setData, handlePostRequest,
             handleSize, handleEdit, handleDelete,
-            isEditAction,
-            addToCart, cartItems,
-            removeCartItem, setCartItems
+            isEditAction, addToCart, total, removeItemFromCart, cartData
         }}>
             {props.children}
         </Context.Provider>

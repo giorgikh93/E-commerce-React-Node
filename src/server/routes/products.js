@@ -13,7 +13,7 @@ router.use(session({
     secret: 'finalProject',
     resave: true,
     saveUninitialized: true,
-    cookie: ({ maxAge: 6000000 })
+    cookie: ({ maxAge: 600000 })
 }))
 
 
@@ -120,58 +120,42 @@ router.route('/contact').post((req, res) => {
     res.send('Your message has been sent').status(200)
 })
 
+
+
 router.route('/cart').post((req, res) => {
-    let productId = req.body.id
-    let quantity = req.body.quantity
-    console.log(req.session.cart)
-    if (req.session.cart) {
-        console.log('session cart existed')
-        if (req.session.cart.hasOwnProperty(productId)) {
-            console.log(productId)
-        }
-        req.session.cart[productId] = quantity
+    let productId = req.body.item.id
+    let operator = req.body.operator
+    const products = productHandler.getCartItems()
+
+    const item = productHandler.getCartItemById(productId)
+
+    if (item) {
+        productHandler.updateCartItems(productId,operator)
+        
     } else {
-        req.session.cart = {}
-        req.session.cart[productId] = quantity
+        req.body.item['quantity'] = 1
+        req.body.item['total'] = req.body.item.price
+        productHandler.addCartItems(req.body.item)
     }
 
-    // if (req.session.cart) {
-    //     if (req.session.cart.hasOwnProperty(productId)) {
-    //         quantity += req.session.cart[productId]
-    //     }
-    //     req.session.cart[productId] = quantity
-    // } else {
-    //     req.session.cart = {}
-    //     req.session.cart[productId] = quantity
-    // }
+    req.session.cart = {}
+    req.session.cart = products
+    res.send(req.session.cart)
+   
+})
 
-    res.sendStatus(200)
+router.route('/cart').get((req, res) => {
+    res.send(req.session.cart)
 })
 
 
-router.route('/cart').get((req, res) => {
-    let cartItems = []
-    let total = 0;
-    let shoppingCart = req.session.cart
-    let products = productHandler.getProducts()
-    if (!shoppingCart) {
-        return res.send('Cart is Empty')
-    } else {
-        for (let productId in shoppingCart) {
-            let cartProduct = products.find((product) => product.id === productId)
-            let newProduct = {
-                id: cartProduct.id,
-                name: cartProduct.name,
-                description: cartProduct.description,
-                quantity: shoppingCart[productId],
-                price: cartProduct.price,
-                image: cartProduct.image,
-                freeshipping: cartProduct.freeshipping
-            }
-            cartItems.push(newProduct)
-        }
-    }
-    console.log(cartItems)
+
+router.route('/cart').delete((req, res) => {
+    const productId = req.body.id
+    productHandler.deleteCartItem(productId)
+    const products = productHandler.getCartItems()
+    req.session.cart = products
+    res.send(req.session.cart)
 })
 
 module.exports = router;

@@ -10,6 +10,7 @@ function Item() {
     const { itemId } = useParams()
     const product = data.find(({ id }) => id === itemId)
 
+    
     return (
 <>
     {!product ? 'Cart is Empty' :

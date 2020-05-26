@@ -4,6 +4,7 @@ class ProductHandler {
     constructor() {
         this.products = []
         this.contacts = []
+        this.cartItems = []
         this.fill()
         this.fillContacts()
     }
@@ -13,10 +14,10 @@ class ProductHandler {
             this.contacts = JSON.parse(data.toString())
         }.bind(this))
     }
-    
+
     commitContact() {
-        fs.writeFile('contact.json', JSON.stringify(this.contacts,null,2),  (err)=>{
-            if(err){
+        fs.writeFile('contact.json', JSON.stringify(this.contacts, null, 2), (err) => {
+            if (err) {
                 return 'there is an error'
             }
             console.log('successfully saved')
@@ -31,19 +32,20 @@ class ProductHandler {
     }
 
     commit() {
-        fs.writeFile('data.json', JSON.stringify(this.products,null,2),  (err)=>{
-            if(err){
+        fs.writeFile('data.json', JSON.stringify(this.products, null, 2), (err) => {
+            if (err) {
                 return 'there is an error'
             }
             console.log('successfully saved')
         })
     }
 
-    //Get
+    //GetAllProduct
     getProducts() {
         return this.products
     }
-    //post
+
+    //addProduct
     addProduct(product) {
         this.products.push(product)
 
@@ -59,7 +61,7 @@ class ProductHandler {
         let idx = this.products.findIndex(({ id }) => id === productId);
         this.products[idx] = product;
         this.commit()
-      
+
     }
     //deleteProduct
     deleteProduct(productId) {
@@ -67,11 +69,50 @@ class ProductHandler {
         this.products.splice(idx, 1);
         this.commit()
 
-      }
+    }
     //////addContacts
-    addContactText(text){
+    addContactText(text) {
         this.contacts.push(text)
         this.commitContact()
+    }
+
+    ////getCartITems
+    getCartItems() {
+        return this.cartItems
+    }
+    ///getCartItemById
+
+    getCartItemById(cartItemId) {
+        return this.cartItems.find(({ id }) => id === cartItemId);
+
+    }
+
+    ///addCArtItems
+    addCartItems(item) {
+        this.cartItems.push(item)
+    }
+    ///updateCartItems
+    updateCartItems(cartItemid, operator) {
+        let cartItem = this.cartItems.find(({ id }) => id === cartItemid);
+        if (operator === '+') {
+            cartItem.quantity += 1
+        } else if (operator === '-') {
+            if (cartItem.quantity !== 0) {
+                cartItem.quantity -= 1
+            }
+        }
+        cartItem.total = cartItem.price * cartItem.quantity
+    }
+    ////deleteCartItem
+    deleteCartItem(cartItemId) {
+        let idx = this.cartItems.findIndex(({ id }) => id === cartItemId);
+        this.cartItems.splice(idx, 1);
+
+    }
+
+    ///removeAllProducts
+    removeAllProducts(){
+        return this.cartItems = []
     }
 }
 module.exports = ProductHandler;
