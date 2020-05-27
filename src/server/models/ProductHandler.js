@@ -40,7 +40,7 @@ class ProductHandler {
         })
     }
 
-    //GetAllProduct
+    //getAllProduct
     getProducts() {
         return this.products
     }
@@ -76,7 +76,7 @@ class ProductHandler {
         this.commitContact()
     }
 
-    //getCartITems
+    //getCartItems
     getCartItems() {
         return this.cartItems
     }

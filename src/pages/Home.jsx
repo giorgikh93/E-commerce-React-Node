@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Filter from '../components/Filter'
 import MainContent from '../components/MainContent'
 import { Consumer } from '../Context'
@@ -13,7 +13,7 @@ function Home() {
     const { handleClick2 } = useClick()
     // const [sorted, setSorted] = useState(false)
 
-    function func3() {
+    function ifOneOfThemIsTrue() {
         for (let i in buttonClick) {
             if (buttonClick[i]) {
                 return true
@@ -21,7 +21,7 @@ function Home() {
         }
     }
     useEffect(() => {
-        func3();
+        ifOneOfThemIsTrue();
     })
 
     function filterBySize(e) {
@@ -36,14 +36,17 @@ function Home() {
 
     }
 
-    let filteredData = []
 
-     for (let i in buttonClick) {
-        if (buttonClick[i]) {
-            for (let j of data) {
-                if (j.size[i]) {
-                    if (!filteredData.includes(j)) {
-                        filteredData.push(j)
+
+    let filteredData = []
+    if (ifOneOfThemIsTrue()) {
+        for (let i in buttonClick) {
+            if (buttonClick[i]) {
+                for (let j of data) {
+                    if (j.size[i]) {
+                        if (!filteredData.includes(j)) {
+                            filteredData.push(j)
+                        }
                     }
                 }
             }
@@ -56,19 +59,20 @@ function Home() {
         if (value === 'Lowest-Highiest') {
             handleClick2()
             setData(prev => prev.sort((a, b) => a.price - b.price))
-            // props.data.sort((a, b) => a.price - b.price)
+            // data.sort((a, b) => a.price - b.price)
+    
         } else if (value === 'Highest-Lowest') {
             handleClick2()
             setData(prev => prev.sort((a, b) => b.price - a.price))
-            // props.data.sort((a, b) => b.price - a.price)
+            // data.sort((a, b) => b.price - a.price)
         }
-
     }
+
 
     return (
         <div >
-            <Filter sort={sort} filterBySize={filterBySize} data={func3() ? filteredData : data} buttonClick={buttonClick} />
-            <MainContent className='mainContent' data={func3() ? filteredData : data} />
+            <Filter sort={sort} filterBySize={filterBySize} data={ifOneOfThemIsTrue() ? filteredData : data} buttonClick={buttonClick} />
+            <MainContent className='mainContent' data={ifOneOfThemIsTrue() ? filteredData : data} />
         </div>
     )
 }
