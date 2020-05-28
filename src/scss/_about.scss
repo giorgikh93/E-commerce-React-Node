@@ -1,4 +1,7 @@
 .about{
+  @include responsive(medium){
+    padding: 0 50px;
+  }
     h1{
       @extend %heading
     }

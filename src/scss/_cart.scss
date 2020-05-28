@@ -16,20 +16,31 @@
 .cartItemWrapper{
     display: flex;
     flex-direction: column;
-    margin: 50px auto;
+    margin: 74px auto;
 }
 .cartTotalWrapper{
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @include responsive(phone){
+          justify-content: center;
+        }
+        @include responsive(medium){
+            justify-content: center;
+        }
 }
 .cartItems{
-    height: 100px;
-    width: 600px;
-    margin: 20px 0;
+    height: 111px;
+    width: 610px;
+    margin-bottom:50px;
     display: flex;
     justify-content: space-between;;
-    box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);;
+    box-shadow:  0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+    @include responsive(phone){
+        height:  243px;
+        width: 298px;
+        flex-direction: column;
+    }
     img{
         width: 100px;
         height: 100%;
@@ -39,13 +50,16 @@
     padding: 50px 0;
 }
 .line{
-    width: 200px;
-    height: 2px;
+    width: 148px;
+    height: 1px;
     background-color: black;
     margin: 20px 0;
 }
 .total{
-    padding: 50px;
+    padding: 27px;
+    @include responsive(medium){
+        padding: 6px;
+    }
     span{
         font-weight: bold;
         padding: 0 5px;
@@ -60,7 +74,7 @@
 }
 .cartPrice{
     color: $mainColor;
-    padding: 10px 30px;
+    padding: 10px 19px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -75,20 +89,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    @include responsive(phone){
+    padding: 5px 50px;
+
+    }
     .remove{
-        border: 2px solid rgb(241, 38, 38);
+        border: 1px solid #CD1A2C;
         padding: 10px 30px;
-        color: rgb(241, 38, 38);
-        font-weight: bold;
+        color: #CD1A2C;
         background-color: #ffffff;
         cursor: pointer;
         outline: none;
+        font-size: 14px;
+        transition: .2s;
+        &:hover{
+            background-color: #CD1A2C;
+            color: white;
+        }
     }
 }
 .quantity{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @include responsive(phone){
+        padding: 5px 20px;
+    }
     button{
         border: none;
         background-color: #ffffff;
@@ -109,4 +135,11 @@
     background-color: white;
     cursor: pointer;
     outline: none;
+}
+.lineTotal{
+    @include responsive(medium){
+display: flex;
+flex-direction: column;
+align-items: center;
+    }
 }

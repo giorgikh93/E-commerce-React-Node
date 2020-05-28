@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Filter(props) {
+
     return (
         <div className='filterWrapper'>
             <div className='sizesWrapper'>
@@ -19,7 +20,7 @@ function Filter(props) {
                 <span className='productFound'> {props.data.length} </span>Product Found
             </div>
 
-            <select onClick={(e)=>props.sort(e)}>
+            <select onClick={(e)=>props.sort(e,props.data)}>
                 <option>Order by</option>
                 <option value="Lowest-Highiest" >Lowest-Highiest</option>
                 <option value="Highest-Lowest">Highiest-Lowest</option>

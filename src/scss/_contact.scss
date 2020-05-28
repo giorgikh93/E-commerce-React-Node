@@ -2,8 +2,16 @@
 
 
 .contact{
+    @include responsive(tablet){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     h1{
-        @extend %heading
+        @extend %heading;
+        @include responsive(tablet){
+          padding: 25px 0;
+        }
     }
     form{
         display: flex;
@@ -11,6 +19,10 @@
         width: 400px;
         height: 364px;
         justify-content: space-between;
+        @include responsive(phone){
+            width: 245px;
+            margin: 0 auto;
+        }
         textarea{
             padding: 10px;
         }

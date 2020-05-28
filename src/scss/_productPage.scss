@@ -2,6 +2,9 @@
     display: flex;
     align-items: space-between;
     padding: 50px;
+    @include responsive(phone){
+        display: block;
+    }
     img{
         max-width: 440px;
         width: 100%;
@@ -26,6 +29,9 @@
         padding: 10px;
         cursor: pointer;
         transition: 0.2s;
+        @include responsive(phone){
+            padding: 5px;
+        }
      &:hover{
          background-color: $mainColor;
          color: white;
@@ -39,6 +45,9 @@
    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include responsive(phone){
+        padding: 0px;
+    }
 }
 .sizesWrapper2{
     display: flex;
@@ -53,6 +62,8 @@
 .addBtn{
     width: 240px;
     background: white;
-
+    @include responsive(phone){
+        width:100%;
+    }
 }
 

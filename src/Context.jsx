@@ -9,7 +9,7 @@ const Context = React.createContext()
 
 
 function ContextProvider(props) {
-    const { isClicked, handleClick} = useClick(false)
+    const { isClicked, handleClick } = useClick(false)
 
     ////State for Forms and recieved Data/////
     const [id, setId] = useState('')

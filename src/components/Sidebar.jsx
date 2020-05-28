@@ -4,8 +4,9 @@ import { Consumer } from '../Context'
 
 function Sidebar() {
     const {isClicked} = useContext(Consumer)
-
+    
     const className = isClicked && 'slide'
+ 
     return (
         <>
             <div className={`sideBar ${className}`}>
