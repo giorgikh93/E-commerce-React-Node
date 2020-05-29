@@ -4,7 +4,7 @@ import { useState } from 'react'
 function useSize() {
     const [buttonClick, setButtonClick] = useState({ XS: false, S: false, M: false, L: false, XL: false, XXL: false })
 
-    
+
     function changeSize(e) {
         const { value } = e.target
         setButtonClick(prev => {
@@ -15,7 +15,7 @@ function useSize() {
         })
     }
 
-    return { buttonClick, setButtonClick,changeSize}
+    return { buttonClick, setButtonClick, changeSize }
 
 }
 

@@ -72,6 +72,7 @@
         border: 2px solid $mainColor;
         color: $mainColor;
         outline: none;
+        cursor: pointer;
         @include responsive(tablet){
             margin-top: 20px;
         }

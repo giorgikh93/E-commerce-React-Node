@@ -68,14 +68,12 @@ class ProductHandler {
         let idx = this.products.findIndex(({ id }) => id === productId);
         this.products.splice(idx, 1);
         this.commit()
-
     }
     //addContacts
     addContactText(text) {
         this.contacts.push(text)
         this.commitContact()
     }
-
     //getCartItems
     getCartItems() {
         return this.cartItems
@@ -84,9 +82,7 @@ class ProductHandler {
 
     getCartItemById(cartItemId) {
         return this.cartItems.find(({ id }) => id === cartItemId);
-
     }
-
     //addCArtItems
     addCartItems(item) {
         this.cartItems.push(item)
@@ -107,11 +103,6 @@ class ProductHandler {
     deleteCartItem(cartItemId) {
         let idx = this.cartItems.findIndex(({ id }) => id === cartItemId);
         this.cartItems.splice(idx, 1);
-    }
-
-    //removeAllProducts
-    removeAllProducts(){
-        return this.cartItems = []
     }
 }
 module.exports = ProductHandler;

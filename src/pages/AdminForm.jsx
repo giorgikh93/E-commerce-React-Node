@@ -88,7 +88,7 @@ function AdminForm(props) {
 
                         <div className='sizeCheckbox'>
 
-                            Available Sizes:
+                            Sizes:
                     <input type="checkbox" value='XS' checked={size.XS} onChange={handleSize} />XS
                     <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
                    <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
@@ -96,7 +96,7 @@ function AdminForm(props) {
                    <input type="checkbox" value='XL' checked={size.XL} onChange={handleSize} />XL
                    <input type="checkbox" value='XXL' checked={size.XXL} onChange={handleSize} />XXL
                    </div>
-                        <div> Free shipping <input type="checkbox" value='isFreeShipping' checked={isFreeShipping} onChange={() => setIsFreeShipping(prevState => !prevState)} /></div>
+                        <div> <span>Free shipping </span><input type="checkbox" value='isFreeShipping' checked={isFreeShipping} onChange={() => setIsFreeShipping(prevState => !prevState)} /></div>
                         <input type="file" name='image' onChange={(e) => setFile(e.target.files[0])} />
                         <button disabled={!id} type='button' onClick={handlePostRequest}>{isEditAction ? 'Edit Product' : 'Add Product'}</button>
                     </form>

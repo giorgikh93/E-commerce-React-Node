@@ -10,7 +10,6 @@ import Cart from './pages/Cart'
 import Item from './pages/Item'
 import './scss/base.scss'
 
-
 function App() {
   return (
     <>

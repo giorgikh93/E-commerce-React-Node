@@ -16,7 +16,7 @@ function Header() {
                 </div>
             </Link>
             <Link to='/cart'>
-                <i className="fa fa-shopping-bag" aria-hidden="true">{cartData.length > 0 ? <div className='productCounter'>{cartData.length}</div> : null} </i>
+                <i className="fa fa-shopping-bag bag" aria-hidden="true">{cartData.length > 0 ? <div className='productCounter'>{cartData.length}</div> : null} </i>
             </Link>
         </div>
     )

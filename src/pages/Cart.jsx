@@ -11,7 +11,7 @@ function Cart() {
             {cartData.length > 0 ?
                 <CartItems />
                 : <div className='cart'>
-                    <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <i className="fa fa-shopping-bag bag2" aria-hidden="true"></i>
                     <h1>Cart is Empty</h1>
                 </div>}
 
