@@ -134,7 +134,6 @@ router.route('/cart').post((req, res) => {
         req.body.item['total'] = req.body.item.price
         productHandler.addCartItems(req.body.item)
     }
-
     req.session.cart = {}
     req.session.cart = products
     res.send(req.session.cart)

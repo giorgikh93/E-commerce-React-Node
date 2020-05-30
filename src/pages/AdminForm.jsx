@@ -4,6 +4,7 @@ import { Consumer } from '../Context'
 
 function AdminForm(props) {
     const idRef = useRef()
+    const warningRef = useRef()
 
     const { id, setId,
         title, setTitle,
@@ -50,11 +51,25 @@ function AdminForm(props) {
 
     }
     )
+
     function handleBlur() {
+        if (!isEditAction) {
+            for (let i of data) {
+                if (id === i.id) {
+                    warningRef.current.classList.remove('none')
+                }
+            }
+        }
+
         if (!id) {
             idRef.current.focus()
         }
     }
+
+    function handleFocus() {
+        warningRef.current.classList.add('none')
+    }
+
     return (
         <div>
             <div className='adminForms'>
@@ -81,7 +96,8 @@ function AdminForm(props) {
             <div className='addProduct'>
                 {props.isClicked &&
                     <form>
-                        id:<input ref={idRef} type="number" name='id' value={id} onChange={(e) => setId(e.target.value)} onBlur={handleBlur} />
+                        id:<input ref={idRef} type="number" name='id' value={id} onChange={(e) => setId(e.target.value)} onBlur={handleBlur} onFocus={handleFocus} />
+                        <span ref={warningRef} className='none' style={{ color: 'red' }}>ID must be unique!</span>
                    Title:<input type="text" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
                    Description: <textarea value={textarea} onChange={(e) => setTextArea(e.target.value)} />
                    Price:<input type="text" name='price' value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -89,7 +105,7 @@ function AdminForm(props) {
                         <div className='sizeCheckbox'>
 
                             Sizes:
-                    <input type="checkbox" value='XS' checked={size.XS} onChange={handleSize} />XS
+                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : ''} onChange={handleSize} />XS
                     <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
                    <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
                    <input type="checkbox" value='L' checked={size.L} onChange={handleSize} />L
@@ -98,7 +114,7 @@ function AdminForm(props) {
                    </div>
                         <div> <span>Free shipping </span><input type="checkbox" value='isFreeShipping' checked={isFreeShipping} onChange={() => setIsFreeShipping(prevState => !prevState)} /></div>
                         <input type="file" name='image' onChange={(e) => setFile(e.target.files[0])} />
-                        <button disabled={!id} type='button' onClick={handlePostRequest}>{isEditAction ? 'Edit Product' : 'Add Product'}</button>
+                        <button disabled={!id} onClick={handlePostRequest}>{isEditAction ? 'Edit Product' : 'Add Product'}</button>
                     </form>
                 }
 

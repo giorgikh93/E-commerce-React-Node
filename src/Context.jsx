@@ -7,7 +7,6 @@ axios.defaults.withCredentials = true
 
 const Context = React.createContext()
 
-
 function ContextProvider(props) {
     const { isClicked, handleClick } = useClick(false)
 
@@ -26,10 +25,9 @@ function ContextProvider(props) {
     const [cartData, setCartData] = useState([])
     ////
 
-
+    
 
     const ADMIN_URL = 'http://localhost:5000/admin'
-
     function resetFields() {
         setId('')
         setTitle('')
@@ -148,8 +146,6 @@ function ContextProvider(props) {
             })
         return () => isSubscribed = false
     }, [])
-
-    //////////////
 
     return (
         <Context.Provider value={{

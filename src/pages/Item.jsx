@@ -1,15 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Consumer } from '../Context'
-import useSize from '../Hooks/UseSize'
+
+
 
 function Item() {
-    const { buttonClick, changeSize } = useSize()
+
+    const [size, setSize] = useState({ XS: false, S: false, M: false, L: false, XL: false, XXL: false })
     const { data, addToCart } = useContext(Consumer)
 
     const { itemId } = useParams()
     const product = data.find(({ id }) => id === itemId)
 
+    function changeSize(e) {
+        const { value } = e.target
+        setSize(prev => {
+            return {
+                ...prev,
+                [value]: !prev[value]
+            }
+        })
+    }
 
     return (
         <>
@@ -27,12 +38,12 @@ function Item() {
                             <div className=' sizesWrapper2'>
                                 <span style={{ display: 'flex', alignItems: 'center' }}>Size:</span>
                                 <div onClick={changeSize}>
-                                    <button value='XS' className={buttonClick.XS ? 'selected' : 'unSelected'}>XS</button>
-                                    <button value='S' className={buttonClick.S ? 'selected' : 'unSelected'}>S</button>
-                                    <button value='M' className={buttonClick.M ? 'selected' : 'unSelected'}>M</button>
-                                    <button value='L' className={buttonClick.L ? 'selected' : 'unSelected'}>L</button>
-                                    <button value='XL' className={buttonClick.XL ? 'selected' : 'unSelected'}>XL</button>
-                                    <button value='XXL' className={buttonClick.XXL ? 'selected' : 'unSelected'}>XXL</button>
+                                    <button value='XS' className={size.XS ? 'selected' : 'unSelected'}>XS</button>
+                                    <button value='S' className={size.S ? 'selected' : 'unSelected'}>S</button>
+                                    <button value='M' className={size.M ? 'selected' : 'unSelected'}>M</button>
+                                    <button value='L' className={size.L ? 'selected' : 'unSelected'}>L</button>
+                                    <button value='XL' className={size.XL ? 'selected' : 'unSelected'}>XL</button>
+                                    <button value='XXL' className={size.XXL ? 'selected' : 'unSelected'}>XXL</button>
                                 </div>
                             </div>
 
