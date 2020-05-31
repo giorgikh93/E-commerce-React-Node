@@ -8,15 +8,16 @@ import Contact from './pages/Contact'
 import Admin from './pages/Admin'
 import Cart from './pages/Cart'
 import Item from './pages/Item'
+import {AnimatePresence} from 'framer-motion'
 import './scss/base.scss'
 
 function App() {
   return (
     <>
       <Header />
-      <hr />
       <Sidebar />
       <div className='bodyWrapper'>
+        <AnimatePresence>
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -37,6 +38,7 @@ function App() {
             <Item />
           </Route>
         </Switch>
+        </AnimatePresence>
       </div>
     </>
 

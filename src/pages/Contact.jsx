@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import Axios from 'axios'
-
+import { motion } from 'framer-motion'
 
 
 function Contact() {
@@ -8,7 +8,14 @@ function Contact() {
     const [email, setEmail] = useState('')
     const [text, setText] = useState('')
     const [sendConfirmation, setSendConfirmation] = useState('')
-    const emailRef = useRef()
+    const warnRef = useRef()
+
+    function reset() {
+        setName('');
+        setEmail('');
+        setText('')
+    }
+
     const URL = 'http://localhost:5000/contact'
 
     function handleSubmit(e) {
@@ -25,12 +32,12 @@ function Contact() {
         Axios.post(URL, data)
             .then(res => setSendConfirmation(res.data))
             .then(deleteSend())
-        
     }
 
     function deleteSend() {
         setTimeout(() => {
             setSendConfirmation('')
+            reset()
         }, 2000)
     }
 
@@ -44,20 +51,44 @@ function Contact() {
 
     function handleBlur() {
         if (!email.includes('@')) {
-            emailRef.current.focus()
+            warnRef.current.classList.remove('none')
         }
+    }
+    function handleFocus() {
+        warnRef.current.classList.add('none')
     }
 
     return (
-        <div className='contact'>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='contact'>
             <h1>Contact Us</h1>
             <form action="">
-                <input type="text" value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
-                <input ref={emailRef} type="text" value={email} placeholder='Email' onBlur={handleBlur} onChange={(e) => setEmail(e.target.value)} />
-                <textarea value={text}  cols="30" rows="10" placeholder='text' onChange={(e) => setText(e.target.value)}/>
-                <button disabled={!text} className={`submit ${sendConfirmation !== '' ? 'green' : 'dark'}`} type='button' onClick={handleSubmit}>{sendMessage()}</button>
+                <input
+                    type="text"
+                    value={name}
+                    placeholder='Name'
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    value={email}
+                    placeholder='Email'
+                    onBlur={handleBlur}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onFocus={handleFocus}
+                />
+                <span ref={warnRef} className='none' style={{ color: 'red' }}>You have to use valid email</span>
+                <textarea
+                    value={text}
+                    cols="30" rows="10"
+                    placeholder='text'
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <button disabled={!text}
+                    className={`submit ${sendConfirmation !== '' ? 'green' : 'dark'}`}
+                    type='button'
+                    onClick={handleSubmit}>{sendMessage()}</button>
             </form>
-        </div>
+        </motion.div>
     )
 }
 

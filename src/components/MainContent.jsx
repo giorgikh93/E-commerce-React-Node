@@ -14,7 +14,7 @@ function MainContent(props) {
         const { value } = e.target
         if (value === 'Order by') {
             handleClick()
-            props.data.sort((a,b)=> a.id-b.id)
+            return false;
         } else if (value === 'Lowest-Highiest') {
             handleClick()
             props.data.sort((a, b) => a.price - b.price)

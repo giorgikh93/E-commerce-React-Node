@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import MainContent from '../components/MainContent'
 import { Consumer } from '../Context'
-
+import {motion} from 'framer-motion'
 
 function Home() {
     const { data, size, setSize } = useContext(Consumer)
@@ -43,9 +43,9 @@ function Home() {
     }
 
     return (
-        <>
+        <motion.div  initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
             <MainContent filterBySize={filterBySize} data={filteredData.length > 0 ? filteredData : data} />
-        </>
+        </motion.div>
     )
 }
 

@@ -13,7 +13,7 @@ router.use(session({
     secret: 'finalProject',
     resave: true,
     saveUninitialized: true,
-    cookie: ({ maxAge: 600000 })
+    cookie: ({ maxAge: 6000 })
 }))
 
 
@@ -38,6 +38,12 @@ const upload = multer({ storage: storage }).single('image')
 
 const ProductHandler = require('../models/ProductHandler')
 const productHandler = new ProductHandler()
+
+const CartItemsHandler = require('../models/CartItemsHandler')
+const cartItemsHandler = new CartItemsHandler()
+
+const ContactHandler = require('../models/ContactHandler')
+const contactHandler = new ContactHandler()
 
 
 router.route('/admin').get((req, res) => {
@@ -77,7 +83,6 @@ router.route('/admin/:id').get((req, res) => {
 })
 
 router.route('/admin/:id').put((req, res) => {
-
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             return res.status(500).json(err)
@@ -115,41 +120,40 @@ router.route('/admin/:id').delete((req, res) => {
 
 router.route('/contact').post((req, res) => {
     const text = req.body.data
-    productHandler.addContactText(text)
+    contactHandler.addContactText(text)
     res.send('Your message has been sent').status(200)
 })
 
 
 router.route('/cart').post((req, res) => {
+
     let productId = req.body.item.id
     let operator = req.body.operator
-    const products = productHandler.getCartItems()
-    const item = productHandler.getCartItemById(productId)
+    const products = cartItemsHandler.getCartItems()
+    const item = cartItemsHandler.getCartItemById(productId)
 
     if (item) {
-        productHandler.updateCartItems(productId,operator)
-        
+        cartItemsHandler.updateCartItems(productId, operator)
+
     } else {
         req.body.item['quantity'] = 1
         req.body.item['total'] = req.body.item.price
-        productHandler.addCartItems(req.body.item)
+        cartItemsHandler.addCartItems(req.body.item)
     }
-    req.session.cart = {}
-    req.session.cart = products
-    res.send(req.session.cart)
    
+    req.session.cart = products
+    res.send(products)
 })
 
 router.route('/cart').get((req, res) => {
-    res.send(req.session.cart)
+    const products = cartItemsHandler.getCartItems()
+    res.send(req.session.cart !== undefined ? products : cartItemsHandler.removeAllCartItem())
 })
-
-
 
 router.route('/cart').delete((req, res) => {
     const productId = req.body.source.id
-    productHandler.deleteCartItem(productId)
-    const products = productHandler.getCartItems()
+    cartItemsHandler.deleteCartItem(productId)
+    const products = cartItemsHandler.getCartItems()
     req.session.cart = products
     res.send(req.session.cart)
 })

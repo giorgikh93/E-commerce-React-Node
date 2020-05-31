@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Consumer } from '../Context'
-
+import {motion} from 'framer-motion'
 
 
 function Item() {
@@ -23,7 +23,7 @@ function Item() {
     }
 
     return (
-        <>
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
             {!product ? 'Cart is Empty' :
                 <div className='individualProductWrapper'>
                     <div><img src={`/pictures/${product.image}`} alt="i" /> </div>
@@ -56,7 +56,7 @@ function Item() {
                     </div>
                 </div>
             }
-        </>
+        </motion.div>
     )
 }
 
