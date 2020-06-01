@@ -10,7 +10,7 @@ class ContactHandler {
 
     fillContacts() {
         fs.readFile('contact.json', function (err, data) {
-            this.contacts = JSON.parse(data.toString())
+            this.contacts = JSON.parse(data)
         }.bind(this))
     }
 

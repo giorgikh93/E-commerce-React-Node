@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Consumer } from '../Context'
-import {motion} from 'framer-motion'
 
 function CartItems() {
 
@@ -28,7 +27,7 @@ function CartItems() {
     </div>)
 
     return (
-        <motion.div  initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className='cartItemWrapper'>
+        <div className='cartItemWrapper'>
             <div className='cartTotalWrapper'>
                 {cartItems}
             </div>
@@ -37,7 +36,7 @@ function CartItems() {
                 <span className='total'>Total:<span>{total()} GEL</span></span>
                 <div className='line'></div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

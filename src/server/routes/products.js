@@ -13,7 +13,7 @@ router.use(session({
     secret: 'finalProject',
     resave: true,
     saveUninitialized: true,
-    cookie: ({ maxAge: 6000 })
+    cookie: ({ maxAge: 10000 })
 }))
 
 
@@ -118,20 +118,21 @@ router.route('/admin/:id').delete((req, res) => {
 
 })
 
+
+//Contact
 router.route('/contact').post((req, res) => {
     const text = req.body.data
     contactHandler.addContactText(text)
     res.send('Your message has been sent').status(200)
 })
 
-
+//Cart
 router.route('/cart').post((req, res) => {
-
     let productId = req.body.item.id
     let operator = req.body.operator
     const products = cartItemsHandler.getCartItems()
     const item = cartItemsHandler.getCartItemById(productId)
-
+    
     if (item) {
         cartItemsHandler.updateCartItems(productId, operator)
 
@@ -140,8 +141,7 @@ router.route('/cart').post((req, res) => {
         req.body.item['total'] = req.body.item.price
         cartItemsHandler.addCartItems(req.body.item)
     }
-   
-    req.session.cart = products
+
     res.send(products)
 })
 

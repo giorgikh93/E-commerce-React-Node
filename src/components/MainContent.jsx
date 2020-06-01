@@ -39,7 +39,7 @@ function MainContent(props) {
     return (
         <>
             <Filter filterBySize={props.filterBySize} sort={sort} data={props.data} />
-            <div className="galleryWrapper">
+            <div className='galleryWrapper'>
                 {products}
             </div>
         </>
