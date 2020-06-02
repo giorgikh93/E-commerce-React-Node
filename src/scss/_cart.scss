@@ -11,6 +11,8 @@
     h1{
         text-align: center;
         font-size: 30px;
+        font-family: 'open-sans-semi-bold';
+        color: #383737;
     }
 }
 .cartItemWrapper{
@@ -61,17 +63,16 @@
         padding: 6px;
     }
     span{
-        font-weight: bold;
+        font-family: 'open-sansBold';
         padding: 0 5px;
     }
 }
 .imgWrapper{
     display: flex;
     justify-content: space-between;
+    font-size: 16px;
 }
-.cartTitle{
-    font-size: 17px;
-}
+
 .cartPrice{
     color: $mainColor;
     padding: 10px 19px;
@@ -80,8 +81,9 @@
     justify-content: space-around;
     span{
         padding: 5px;
-        font-weight: bold;
+        font-family: 'open-sansBold';
         font-size: 16px;
+       
     }
 }
 .cartButtons{
@@ -109,6 +111,7 @@
     }
 }
 .quantity{
+    font-size: 18px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -123,8 +126,7 @@
         cursor: pointer;
     }
     span{
-        font-weight: bold;
-        color: $mainColor;
+        font-family: 'open-sansBold';
     }
 }
 .checkout{
@@ -136,6 +138,8 @@
     cursor: pointer;
     outline: none;
 }
+
+
 .lineTotal{
     @include responsive(medium){
 display: flex;

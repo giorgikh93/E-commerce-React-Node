@@ -3,11 +3,12 @@
     padding: 0 50px;
   }
     h1{
-      @extend %heading
+      @extend %heading;
+      font-family: 'open-sans-semi-bold';
     }
     p{
         font-size: 16px;
-        line-height: 1.5;
-        padding: 20px 0;
+        line-height: 1.7;
+        padding-bottom: 20px;
     }
 }

@@ -132,7 +132,6 @@ router.route('/cart').post((req, res) => {
     let operator = req.body.operator
     const products = cartItemsHandler.getCartItems()
     const item = cartItemsHandler.getCartItemById(productId)
-    
     if (item) {
         cartItemsHandler.updateCartItems(productId, operator)
 
@@ -141,8 +140,9 @@ router.route('/cart').post((req, res) => {
         req.body.item['total'] = req.body.item.price
         cartItemsHandler.addCartItems(req.body.item)
     }
-
+    req.session.cart = products
     res.send(products)
+ 
 })
 
 router.route('/cart').get((req, res) => {

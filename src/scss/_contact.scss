@@ -8,6 +8,7 @@
         align-items: center;
     }
     h1{
+        font-family: 'open-sans-semi-bold';
         @extend %heading;
         @include responsive(tablet){
           padding: 25px 0;
@@ -25,10 +26,11 @@
         }
         textarea{
             padding: 10px;
+            font-family: 'open-sansRegular';
         }
         input,button{
             padding: 10px 10px;
-          
+            font-family: 'open-sansRegular';
         }
         button:disabled{
             background-color: gray;

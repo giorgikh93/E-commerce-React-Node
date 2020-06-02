@@ -11,6 +11,7 @@ import Item from './pages/Item'
 import { Consumer } from './Context'
 import { AnimatePresence } from 'framer-motion'
 import './scss/base.scss'
+// import './output.css'
 
 function App() {
   const { isClicked } = useContext(Consumer)

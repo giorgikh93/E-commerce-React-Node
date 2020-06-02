@@ -3,13 +3,13 @@
     padding: 18px 30px;
     align-items: center;
     box-shadow:  0 1px 1px 0 rgba(241, 236, 236, 0.616), 0 2px 3px rgb(243, 240, 240);
-    z-index: 200000;
 }
 .logo{
     display: flex;
     font-weight: bold;
     font-size: 30px;
     border: 2px solid  $mainColor;
+    font-family: 'open-sans-extraBold';
 }
 .bag{
     position: relative;
@@ -24,20 +24,19 @@
     right: -4px;
     top: -4px;
     font-size: 10px;
+    font-family: 'open-sans-semi-bold';
 }
 .fa.fa-bars,.fa.fa-times{
     cursor: pointer;
     font-size: 20px;
-    width: 50px;
-    z-index: 200000;
 }
 .K{
     background-color: $mainColor;
     color: white;
-    padding:1px 4px;
+    padding:0 5px;
 }
 
 .G{
-    padding:1px 4px;
+    padding:0 5px;
     color:  $mainColor;
 }

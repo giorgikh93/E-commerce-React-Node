@@ -1,7 +1,7 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Consumer } from '../Context'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 
 function Item() {
@@ -23,32 +23,35 @@ function Item() {
     }
 
     return (
-        <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {!product ? 'Cart is Empty' :
                 <div className='individualProductWrapper'>
                     <div><img src={`/pictures/${product.image}`} alt="i" /> </div>
                     <div className='indProductInfo'>
-                        <div>
-                            <h1>{product.title}</h1>
-                            <p>{product.description}</p>
-                        </div>
-                        <div>
-                            <span>{product.price} GEL</span>
-
-                            <div className=' sizesWrapper2'>
-                                <span style={{ display: 'flex', alignItems: 'center' }}>Size:</span>
-                                <div onClick={changeSize}>
-                                    <button value='XS' className={size.XS ? 'selected' : 'unSelected'}>XS</button>
-                                    <button value='S' className={size.S ? 'selected' : 'unSelected'}>S</button>
-                                    <button value='M' className={size.M ? 'selected' : 'unSelected'}>M</button>
-                                    <button value='L' className={size.L ? 'selected' : 'unSelected'}>L</button>
-                                    <button value='XL' className={size.XL ? 'selected' : 'unSelected'}>XL</button>
-                                    <button value='XXL' className={size.XXL ? 'selected' : 'unSelected'}>XXL</button>
+                        <div className='infoWrapper'>
+                            <div>
+                                <h1>{product.title}</h1>
+                                <p>{product.description}</p>
+                            </div>
+                            <div>
+                                <span>{product.price} GEL</span>
+                            </div>
+                            <div>
+                                <div className=' sizesWrapper2'>
+                                    <span style={{ display: 'flex', alignItems: 'center' }}>Size:</span>
+                                    <div onClick={changeSize}>
+                                        <button value='XS' className={size.XS ? 'selected' : 'unSelected'}>XS</button>
+                                        <button value='S' className={size.S ? 'selected' : 'unSelected'}>S</button>
+                                        <button value='M' className={size.M ? 'selected' : 'unSelected'}>M</button>
+                                        <button value='L' className={size.L ? 'selected' : 'unSelected'}>L</button>
+                                        <button value='XL' className={size.XL ? 'selected' : 'unSelected'}>XL</button>
+                                        <button value='XXL' className={size.XXL ? 'selected' : 'unSelected'}>XXL</button>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <div>
+
+                        <div className='itemButtonWrapper'>
                             <button className='addBtn' onClick={() => addToCart(product)}><i className="fa fa-plus" aria-hidden="true" ></i> Add to cart</button>
                         </div>
 

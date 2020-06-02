@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "open-sans-semi-bold";
+  src: url("../fonts/OpenSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "open-sansRegular";
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "open-sans-extraBold";
+  src: url("../fonts/OpenSans-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "open-sansBold";
+  src: url("../fonts/OpenSans-Bold.ttf");
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -73,18 +89,20 @@ table {
 }
 
 .HeaderWrapper {
-  padding: 20px 30px;
+  padding: 18px 30px;
   align-items: center;
+  box-shadow: 0 1px 1px 0 rgba(241, 236, 236, 0.616), 0 2px 3px #f3f0f0;
 }
 
 .logo {
   display: flex;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
   border: 2px solid #383737;
+  font-family: "open-sans-extraBold";
 }
 
-.fa.fa-shopping-bag {
+.bag {
   position: relative;
   font-size: 20px;
 }
@@ -98,52 +116,57 @@ table {
   right: -4px;
   top: -4px;
   font-size: 10px;
+  font-family: "open-sans-semi-bold";
 }
 
 .fa.fa-bars, .fa.fa-times {
   cursor: pointer;
   font-size: 20px;
-  width: 50px;
 }
 
 .K {
   background-color: #383737;
   color: white;
-  padding: 2px 5px;
+  padding: 0 5px;
 }
 
 .G {
-  padding: 2px 5px;
+  padding: 0 5px;
   color: #383737;
-}
-
-hr {
-  color: gray;
-  opacity: 0.2;
 }
 
 .sideBar {
   padding: 20px 30px;
-  width: 200px;
+  width: 240px;
   transform: translate(-100%);
-  height: calc(100vh - 135px);
-  transition: 1s;
-  border-right: 1px solid #e6e2e2;
+  height: calc(100vh - 113px);
+  transition: 0.7s;
+  box-shadow: 0 2px 3px 0 rgba(224, 224, 224, 0.616), 0 3px 5px #dad6d6;
   position: absolute;
+  margin-top: 1px;
   z-index: 12;
   background-color: white;
+  font-family: "open-sans-semi-bold";
 }
 
 .sideBar.slide {
   transform: translate(0);
 }
 
+.opacity {
+  opacity: 0.4;
+}
+
+.sideBar ul {
+  padding-top: 10px;
+}
 .sideBar li {
   padding-bottom: 40px;
+  font-size: 14px;
   color: #383737;
   font-weight: bold;
   opacity: 0.8;
-  transition: 0.3;
+  transition: 0.3s;
 }
 .sideBar li:hover {
   color: black;
@@ -154,6 +177,11 @@ hr {
   display: none;
 }
 
+.bodyWrapper {
+  font-family: "open-sansRegular";
+  transition: 0.4s;
+  padding-bottom: 30px;
+}
 @media only screen and (max-width: 1300px) {
   .bodyWrapper {
     max-width: 960px;
@@ -163,6 +191,7 @@ hr {
 }
 
 .filterWrapper {
+  font-size: 14px;
   padding-top: 20px;
   align-items: center;
 }
@@ -181,27 +210,25 @@ hr {
 }
 .filterWrapper div button {
   font-size: 14px;
-  padding: 20px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   border: none;
   outline: none;
-}
-@media only screen and (max-width: 1000px) {
-  .filterWrapper div button {
-    padding: 12px;
-  }
+  transition: 0.2s;
 }
 .filterWrapper div button:hover {
   background-color: #383737;
   color: white;
 }
 .filterWrapper select {
-  width: 240px;
-  padding: 15px 10px;
+  width: 200px;
+  padding: 9px 10px;
   font-size: 14px;
-  border: 2px solid #383737;
+  border: 1px solid #383737;
   color: #383737;
   outline: none;
+  cursor: pointer;
 }
 @media only screen and (max-width: 1000px) {
   .filterWrapper select {
@@ -210,9 +237,17 @@ hr {
 }
 
 .productFound {
-  font-weight: bold;
+  font-family: "open-sansBold";
   padding-right: 8px;
-  color: #383737;
+}
+
+.productFoundText {
+  padding-right: 80px;
+}
+@media only screen and (max-width: 1000px) {
+  .productFoundText {
+    padding-right: 0;
+  }
 }
 
 .selected {
@@ -252,21 +287,23 @@ hr {
   position: relative;
 }
 .gallery .description {
+  font-size: 14px;
   padding: 20px 20px 15px 20px;
 }
 .gallery .description .mainPrice {
-  font-weight: bold;
-  color: #383737;
+  font-family: "open-sansBold";
 }
 .gallery button {
   border: 1px solid #383737;
   outline: none;
   background: white;
   color: #383737;
-  padding: 13px 0;
+  padding: 10px 0;
   width: 256px;
+  font-size: 16px;
   cursor: pointer;
   transition: 0.2s;
+  font-family: "open-sansRegular";
 }
 .gallery button:hover {
   background-color: #383737;
@@ -288,10 +325,11 @@ hr {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 5px 14px;
+  padding: 5px 11px;
   font-size: 12px;
   color: white;
   background-color: #383737;
+  font-weight: "open-sansRegular";
 }
 
 .dark {
@@ -313,10 +351,13 @@ hr {
     padding: 0 50px;
   }
 }
+.about h1 {
+  font-family: "open-sans-semi-bold";
+}
 .about p {
   font-size: 16px;
-  line-height: 1.5;
-  padding: 20px 0;
+  line-height: 1.7;
+  padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -325,6 +366,9 @@ hr {
     flex-direction: column;
     align-items: center;
   }
+}
+.contact h1 {
+  font-family: "open-sans-semi-bold";
 }
 @media only screen and (max-width: 1000px) {
   .contact h1 {
@@ -346,9 +390,11 @@ hr {
 }
 .contact form textarea {
   padding: 10px;
+  font-family: "open-sansRegular";
 }
 .contact form input, .contact form button {
   padding: 10px 10px;
+  font-family: "open-sansRegular";
 }
 .contact form button:disabled {
   background-color: gray;
@@ -379,6 +425,7 @@ hr {
 }
 .admin div {
   display: flex;
+  padding: 5px 0;
 }
 .admin i {
   cursor: pointer;
@@ -395,7 +442,7 @@ hr {
   display: flex;
   justify-content: center;
   order: 1;
-  width: 350px;
+  width: 268px;
 }
 .admin .addProduct form {
   width: 100%;
@@ -408,10 +455,8 @@ hr {
 }
 
 .adminForms {
-  display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  max-width: 960px;
+  max-width: 910px;
   width: 100%;
   order: 2;
   margin: 0 auto;
@@ -423,6 +468,8 @@ hr {
 }
 .adminForms tbody {
   border: 1px solid black;
+  font-size: 14px;
+  line-height: 1.3;
 }
 .adminForms tbody td, .adminForms tbody tr {
   border: 1px solid black;
@@ -441,6 +488,7 @@ hr {
   border: none;
   color: white;
   cursor: pointer;
+  font-family: "open-sans-semi-bold";
 }
 
 .adminDelete {
@@ -448,6 +496,7 @@ hr {
   color: white;
   border: none;
   cursor: pointer;
+  font-family: "open-sans-semi-bold";
 }
 
 .cart {
@@ -463,6 +512,8 @@ hr {
 .cart h1 {
   text-align: center;
   font-size: 30px;
+  font-family: "open-sans-semi-bold";
+  color: #383737;
 }
 
 .cartItemWrapper {
@@ -527,17 +578,14 @@ hr {
   }
 }
 .total span {
-  font-weight: bold;
+  font-family: "open-sansBold";
   padding: 0 5px;
 }
 
 .imgWrapper {
   display: flex;
   justify-content: space-between;
-}
-
-.cartTitle {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .cartPrice {
@@ -549,7 +597,7 @@ hr {
 }
 .cartPrice span {
   padding: 5px;
-  font-weight: bold;
+  font-family: "open-sansBold";
   font-size: 16px;
 }
 
@@ -580,6 +628,7 @@ hr {
 }
 
 .quantity {
+  font-size: 18px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -597,8 +646,7 @@ hr {
   cursor: pointer;
 }
 .quantity span {
-  font-weight: bold;
-  color: #383737;
+  font-family: "open-sansBold";
 }
 
 .checkout {
@@ -619,10 +667,15 @@ hr {
   }
 }
 
+.bag2 {
+  font-size: 50px;
+}
+
 .individualProductWrapper {
   display: flex;
   align-items: space-between;
   padding: 50px;
+  height: 405px;
 }
 @media only screen and (max-width: 600px) {
   .individualProductWrapper {
@@ -632,10 +685,11 @@ hr {
 .individualProductWrapper img {
   max-width: 440px;
   width: 100%;
+  height: 100%;
 }
 .individualProductWrapper h1 {
   font-size: 18px;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 .individualProductWrapper p {
   font-size: 14px;
@@ -666,7 +720,7 @@ hr {
 
 .indProductInfo {
   width: 100%;
-  padding: 0 30px;
+  padding: 1px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -681,20 +735,51 @@ hr {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 600px) {
+  .sizesWrapper2 {
+    padding: 10px 0;
+  }
+}
 .sizesWrapper2 button {
   font-size: 14px;
   cursor: pointer;
   border: none;
   outline: none;
+  width: 40px;
+  height: 40px;
+}
+@media only screen and (max-width: 600px) {
+  .sizesWrapper2 button {
+    width: 31px;
+    height: 31px;
+  }
 }
 
 .addBtn {
-  width: 240px;
+  width: 256px;
+  height: 40px;
   background: white;
+  font-family: "open-sansRegular";
 }
 @media only screen and (max-width: 600px) {
   .addBtn {
     width: 100%;
+  }
+}
+.addBtn i {
+  padding-right: 5px;
+}
+
+.infoWrapper {
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .itemButtonWrapper {
+    padding-bottom: 20px;
   }
 }
 

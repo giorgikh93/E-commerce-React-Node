@@ -19,7 +19,7 @@ function Filter(props) {
 
             </div>
             <div>
-                <span className='productFound'> {props.data.length} </span>Product Found
+                <span className='productFound'> {props.data.length} </span><span className='productFoundText'>Product Found</span>
             </div>
 
             <select onClick={(e) => props.sort(e)}>

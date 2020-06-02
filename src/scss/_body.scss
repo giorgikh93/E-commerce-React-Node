@@ -9,6 +9,7 @@
     margin-top: 1px;
     z-index: 12;
     background-color: white;
+    font-family: 'open-sans-semi-bold';
 }
 .sideBar.slide{
     transform: translate(0);
@@ -37,6 +38,7 @@
     display:none
 }
 .bodyWrapper{
+    font-family: 'open-sansRegular';
     transition: .4s;
     @extend %wrapper;
     @include responsive(medium){
@@ -48,6 +50,7 @@
 }
 
 .filterWrapper{
+    font-size: 14px;
     @include responsive(tablet){
         flex-direction: column;
     }
@@ -75,10 +78,10 @@
         }
     }
     select{
-        width: 240px;
-        padding: 15px 10px;
+        width: 200px;
+        padding: 9px 10px;
         font-size: 14px;
-        border: 2px solid $mainColor;
+        border: 1px solid $mainColor;
         color: $mainColor;
         outline: none;
         cursor: pointer;
@@ -88,9 +91,15 @@
     }
 }
 .productFound{
-    font-weight: bold;
+    font-family: 'open-sansBold';
     padding-right: 8px;
-    color: $mainColor;
+    
+}
+.productFoundText{
+    padding-right: 80px;
+    @include responsive(tablet){
+        padding-right: 0;
+    }
 }
 .selected{
     background-color:  #383737;
@@ -126,11 +135,11 @@
         position: relative;
     }
     .description{
+        font-size: 14px;
         @extend %spaceBetween;
         padding: 20px 20px 15px 20px;
         .mainPrice{
-            font-weight: bold;
-            color: $mainColor;
+            font-family: 'open-sansBold';
         }
     }
     button{
@@ -138,10 +147,12 @@
         outline: none;
         background: white;
         color: $mainColor;
-        padding: 13px 0;
+        padding: 10px 0;
         width: 256px;
+        font-size: 16px;
         cursor: pointer;
         transition: 0.2s;
+        font-family: 'open-sansRegular';
     
         &:hover{
             background-color: $mainColor;
@@ -156,17 +167,20 @@
         justify-content: center;
     }
 }
+
 .galleryWrapper{
     padding-top: 30px;
+
 }
 .freeShipping{
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px 14px;
+    padding: 5px 11px;
     font-size: 12px;
     color: white;
     background-color: #383737;
+    font-weight: 'open-sansRegular';
 }
 .dark{
     background-color: #383737;
