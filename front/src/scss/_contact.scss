@@ -1,0 +1,57 @@
+
+
+
+.contact{
+    @include responsive(tablet){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        font-family: 'open-sans-semi-bold';
+        @extend %heading;
+        @include responsive(tablet){
+          padding: 25px 0;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 364px;
+        justify-content: space-between;
+        @include responsive(phone){
+            width: 245px;
+            margin: 0 auto;
+        }
+        textarea{
+            padding: 10px;
+            font-family: 'open-sansRegular';
+        }
+        input,button{
+            padding: 10px 10px;
+            font-family: 'open-sansRegular';
+        }
+        button:disabled{
+            background-color: gray;
+        }
+    }
+}
+
+.submit{
+    outline:none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.green{
+    background-color: rgb(21, 128, 21);
+    transition: 0.5s;
+    font-weight: bold;
+
+}
+.dark{
+    background-color: $mainColor;
+    font-weight: bold;
+    transition: 0.7s;
+}
