@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
-
+require('events').EventEmitter.defaultMaxListeners = 15;
 
 
 app.use(products);

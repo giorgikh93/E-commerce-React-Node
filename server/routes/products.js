@@ -61,12 +61,9 @@ router.route('/admin').post((req, res) => {
         }
         const body = req.body
         const file = req.file
-
         body.size = JSON.parse(body.size)
         body.image = (file != undefined ? `${imageName}${file.originalname}` : '')
-
         body.freeshipping = JSON.parse(body.freeshipping)
-
         productHandler.addProduct(body)
 
         return res.status(200).send(productHandler.getProducts())
@@ -95,7 +92,6 @@ router.route('/admin/:id').put((req, res) => {
 
         body.size = JSON.parse(body.size)
         body.image = (file != undefined ? `${imageName}${file.originalname}` : '')
-
         body.freeshipping = JSON.parse(body.freeshipping)
 
         productHandler.updateProduct(body.id, body)
@@ -117,7 +113,6 @@ router.route('/admin/:id').delete((req, res) => {
 
 })
 
-
 //Contact
 router.route('/contact').post((req, res) => {
     const text = req.body.data
@@ -129,7 +124,6 @@ router.route('/contact').post((req, res) => {
 router.route('/cart').post((req, res) => {
     let productId = req.body.item.id
     let operator = req.body.operator
-    const products = cartItemsHandler.getCartItems()
     const item = cartItemsHandler.getCartItemById(productId)
     if (item) {
         cartItemsHandler.updateCartItems(productId, operator)
@@ -139,9 +133,9 @@ router.route('/cart').post((req, res) => {
         req.body.item['total'] = req.body.item.price
         cartItemsHandler.addCartItems(req.body.item)
     }
+    const products = cartItemsHandler.getCartItems()
     req.session.cart = products
     res.send(products)
- 
 })
 
 router.route('/cart').get((req, res) => {
@@ -149,8 +143,11 @@ router.route('/cart').get((req, res) => {
     res.send(req.session.cart !== undefined ? products : cartItemsHandler.removeAllCartItem())
 })
 
-router.route('/cart').delete((req, res) => {
-    const productId = req.body.source.id
+router.route('/cart').delete((req, res, err) => {
+    if (!req.body.source) {
+        throw err
+    }
+    const productId = req.body.source
     cartItemsHandler.deleteCartItem(productId)
     const products = cartItemsHandler.getCartItems()
     req.session.cart = products

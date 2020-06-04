@@ -22,6 +22,7 @@ class ContactHandler {
             console.log('successfully saved')
         })
     }
+ 
 
     //addContacts
     addContactText(text) {

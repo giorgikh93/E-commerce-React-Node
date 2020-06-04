@@ -4,10 +4,14 @@ class ProductHandler {
     constructor() {
         this.products = []
         this.fill()
+        
     }
 
     fill() {
         fs.readFile('../data.json', function (err, data) {
+            if(err) {
+                console.log(err)
+            }
             this.products = JSON.parse(data.toString())
         }.bind(this))
     }
@@ -29,7 +33,6 @@ class ProductHandler {
     //addProduct
     addProduct(product) {
         this.products.push(product)
-
         this.commit()
     }
 
