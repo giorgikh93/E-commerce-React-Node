@@ -99,21 +99,20 @@ function ContextProvider(props) {
 
     }, [])
 
-
     //////////Menage Cart////////////
 
 
-    const CART_URL = `http://localhost:5000/cart`
+    const CART_URL = 'http://localhost:5000/cart'
 
 
-    function removeItemFromCart(item) {
+    function removeItemFromCart(id) {
         axios.delete(CART_URL,
             {
                 headers: {
                     Authorization: true
                 },
                 data: {
-                    source: item
+                    source: id
                 }
             })
             .then(res => setCartData(res.data))

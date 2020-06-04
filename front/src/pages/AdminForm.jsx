@@ -97,21 +97,64 @@ function AdminForm(props) {
             <div className='addProduct'>
                 {props.isClicked &&
                     <form >
-                        id:<input ref={idRef} type="number" name='id' value={id} onChange={(e) => setId(e.target.value)} onBlur={handleBlur} onFocus={handleFocus} />
-                        <span ref={warningRef} className='none' style={{ color: 'red' }}>ID must be unique!</span>
-                   Title:<input type="text" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                   Description: <textarea value={textarea} onChange={(e) => setTextArea(e.target.value)} />
-                   Price:<input type="text" name='price' value={price} onChange={(e) => setPrice(e.target.value)} />
+                        id:<input
+                            ref={idRef}
+                            type="number"
+                            name='id'
+                            value={id}
+                            onChange={(e) => setId(e.target.value)}
+                            onBlur={handleBlur} onFocus={handleFocus}
+                        />
+                        <span
+                            ref={warningRef} className='none' style={{ color: 'red' }}>ID must be unique!</span>
+                   Title:<input
+                            type="text"
+                            name='title'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                   Description: <textarea
+                            value={textarea}
+                            onChange={(e) => setTextArea(e.target.value)} />
+                   Price:<input
+                            type="text"
+                            name='price'
+                            value={price} onChange={(e) => setPrice(e.target.value)}
+                        />
 
                         <div className='sizeCheckbox'>
 
                             Sizes:
-                    <input type="checkbox" value='XS' checked={size.XS ? size.XS : ''} onChange={handleSize} />XS
-                    <input type="checkbox" value='S' checked={size.S} onChange={handleSize} />S
-                   <input type="checkbox" value='M' checked={size.M} onChange={handleSize} />M
-                   <input type="checkbox" value='L' checked={size.L} onChange={handleSize} />L
-                   <input type="checkbox" value='XL' checked={size.XL} onChange={handleSize} />XL
-                   <input type="checkbox" value='XXL' checked={size.XXL} onChange={handleSize} />XXL
+                               <input
+                                type="checkbox"
+                                value='XS'
+                                checked={size.XS ? size.XS : ''}
+                                onChange={handleSize} />XS
+                               <input
+                                type="checkbox"
+                                value='S'
+                                checked={size.S}
+                                onChange={handleSize} />S
+                                <input
+                                type="checkbox"
+                                value='M'
+                                checked={size.M}
+                                onChange={handleSize} />M
+                                <input
+                                type="checkbox"
+                                value='L'
+                                checked={size.L}
+                                onChange={handleSize} />L
+                                <input
+                                type="checkbox"
+                                value='XL'
+                                checked={size.XL}
+                                onChange={handleSize} />XL
+                                <input
+                                type="checkbox"
+                                value='XXL'
+                                checked={size.XXL}
+                                onChange={handleSize} />XXL
                    </div>
                         <div> <span>Free shipping </span><input type="checkbox" value='isFreeShipping' checked={isFreeShipping} onChange={() => setIsFreeShipping(prevState => !prevState)} /></div>
                         <input type="file" name='image' onChange={(e) => setFile(e.target.files[0])} />
