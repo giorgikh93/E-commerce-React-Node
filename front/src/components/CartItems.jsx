@@ -1,9 +1,25 @@
 import React, { useContext } from 'react'
 import { Consumer } from '../Context'
+import useClick from '../Hooks/useClick'
+import axios from 'axios'
 
 function CartItems() {
 
-    const { total, addToCart, removeItemFromCart, cartData } = useContext(Consumer)
+    const { total, addToCart, removeItemFromCart, cartData, setCartData } = useContext(Consumer)
+    const {isClicked,setIsClicked }= useClick(false)
+
+
+    function handleCheckout() {
+        setIsClicked(true)
+        setTimeout(func, 2000)
+        function func() {
+            axios.delete('http://localhost:5000/checkout')
+                .then(res => setCartData(res.data))
+                .then(setIsClicked(false))
+        }
+        
+    }
+
 
     const cartItems = cartData.length > 0 && cartData.map((item, index) => <div key={index} className='cartItems'>
         <div className='imgWrapper'>
@@ -35,6 +51,7 @@ function CartItems() {
                 <span className='total'>Total:<span>{total()} GEL</span></span>
                 <div className='line'></div>
             </div>
+            <button className='checkout' onClick={handleCheckout}> {isClicked ? 'Processing...' : 'Checkout'}</button>
         </div>
     )
 }

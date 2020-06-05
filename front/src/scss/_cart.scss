@@ -131,12 +131,14 @@
 }
 .checkout{
     width: 100px;
-    margin: 0 auto;
+    margin: 36px auto;
     padding: 10px 0;
     border: 2px solid $mainColor;
     background-color: white;
     cursor: pointer;
     outline: none;
+    font-family: 'open-sansRegular';
+    font-size: 15px;
 }
 
 

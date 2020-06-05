@@ -157,7 +157,7 @@ function ContextProvider(props) {
             data, setData, handlePostRequest,
             handleSize, handleEdit, handleDelete,
             isEditAction, addToCart, total, removeItemFromCart,
-            cartData
+            cartData,setCartData
         }}>
             {props.children}
         </Context.Provider>

@@ -19,7 +19,7 @@ function App() {
     <>
       <Header />
       <Sidebar />
-      <div className={`bodyWrapper ${isClicked ? 'opacity':''}`}>
+      <div className={`bodyWrapper ${isClicked ? 'opacity' :''}`}>
         <AnimatePresence>
           <Switch>
             <Route exact path='/'>

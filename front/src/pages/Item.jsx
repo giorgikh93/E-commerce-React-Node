@@ -23,7 +23,7 @@ function Item() {
     }
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='itemWrapper'>
             {!product ? 'Cart is Empty' :
                 <div className='individualProductWrapper'>
                     <div><img src={`/pictures/${product.image}`} alt="i" /> </div>
