@@ -154,4 +154,8 @@ router.route('/cart').delete((req, res, err) => {
     res.send(req.session.cart)
 })
 
+router.route('/checkout').delete((req, res) => {
+    res.send(cartItemsHandler.removeAllCartItem())
+})
+
 module.exports = router;

@@ -1,5 +1,4 @@
 
-
 class CartItemsHandler {
     constructor() {
         this.cartItems = []
