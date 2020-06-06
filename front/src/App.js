@@ -10,7 +10,7 @@ import Cart from './pages/Cart'
 import Item from './pages/Item'
 import { Consumer } from './Context'
 import { AnimatePresence } from 'framer-motion'
-import './scss/base.scss'
+import './scss/output.css'
 
 
 function App() {
