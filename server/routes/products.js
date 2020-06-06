@@ -13,7 +13,7 @@ router.use(session({
     secret: 'finalProject',
     resave: true,
     saveUninitialized: true,
-    cookie: ({ maxAge: 10000 })
+    cookie: ({ maxAge: 1000000 })
 }))
 
 
