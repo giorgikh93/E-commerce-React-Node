@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Consumer } from '../Context'
 
 function Sidebar() {
-    const {isClicked} = useContext(Consumer)
+    const {isClicked,handleClick} = useContext(Consumer)
     
     const className = isClicked && 'slide'
     
@@ -12,13 +12,13 @@ function Sidebar() {
             <div className={`sideBar ${className}`}>
                 <ul>
                     <li>
-                        <Link to='/'>Home</Link>
+                        <Link to='/' onClick={handleClick}>Home</Link>
                     </li>
                     <li>
-                        <Link to='/About'>About</Link>
+                        <Link to='/About' onClick={handleClick}>About</Link>
                     </li>
                     <li>
-                        <Link to='/Contact'>Contact</Link>
+                        <Link to='/Contact' onClick={handleClick}>Contact</Link>
                     </li>
                 </ul>
             </div>

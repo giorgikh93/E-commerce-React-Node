@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-
 function UseClick(bool) {
     const [isClicked, setIsClicked] = useState(bool)
 

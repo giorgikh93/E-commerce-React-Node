@@ -17,7 +17,7 @@ function AdminForm(props) {
         data,
         handlePostRequest, handleSize,
         handleDelete, handleEdit,
-        isEditAction
+        isEditAction,
     } = useContext(Consumer)
 
 
@@ -159,7 +159,7 @@ function AdminForm(props) {
                         <div> <span>Free shipping </span><input type="checkbox" value='isFreeShipping' checked={isFreeShipping} onChange={() => setIsFreeShipping(prevState => !prevState)} /></div>
                         <input type="file" name='image' onChange={(e) => setFile(e.target.files[0])} />
                         <button disabled={!id} type='button' onClick={handlePostRequest}>{isEditAction ? 'Edit Product' : 'Add Product'}</button>
-                    </form>
+                    </form> 
                 }
 
             </div>

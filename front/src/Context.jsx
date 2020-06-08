@@ -24,8 +24,8 @@ function ContextProvider(props) {
     const [cartData, setCartData] = useState([])
     ////
 
-    
 
+   
     const ADMIN_URL = 'http://localhost:5000/admin'
     function resetFields() {
         setId('')
@@ -157,7 +157,7 @@ function ContextProvider(props) {
             data, setData, handlePostRequest,
             handleSize, handleEdit, handleDelete,
             isEditAction, addToCart, total, removeItemFromCart,
-            cartData,setCartData
+            cartData, setCartData
         }}>
             {props.children}
         </Context.Provider>
